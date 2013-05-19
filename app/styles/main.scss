@@ -1,0 +1,282 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+@import 'sass-bootstrap/lib/bootstrap';
+
+
+
+body{
+	width:100%;
+	height:100%;
+	margin:0px;
+	font-family: 'Raleway', Helvetica, sans-serif;
+	background-color: rgb(250,250,250);
+}
+
+a{
+	text-decoration:none;
+}
+
+#navbar{
+	background-color: rgb(48,49,55);
+	margin:0px;
+	height:50px;
+	text-align:center;
+
+	li{
+		color:rgb(214,214,214);
+		height:30px;
+		padding:10px;
+		font-size:1.3em;
+		vertical-align:center;
+		width:200px;
+		text-align:center;
+		&:hover{
+			background-color: lighten( rgb(48,49,55), 10%);
+		}
+	}
+}
+
+#displaycontrol{
+		margin-left:15%;
+		width:70%;
+
+	.display{
+		width:100px;
+		height:1.5em;
+		background-color:red;
+		display:inline-block;
+		color:white;
+		font-size:1.5em;
+		text-align:center;
+		border:none;
+	}
+
+	#map{
+		background-color:green;
+
+	}
+}
+
+li{
+	list-style:none;
+	display:inline-block;
+}
+
+#editorial{
+	width:100%;
+	height:500px;
+	margin-left:  auto;
+	margin-right: auto;
+	background: url('/images/womenvoting.jpg') no-repeat;
+	background-size:100%;
+
+}
+
+#title{
+	width:70%;
+	height:200px;
+	margin-left:  auto;
+	margin-right: auto;
+	background-color:red;
+	margin-top:-100px;
+		border-top: 15px solid blue;
+}
+
+#stats-container{
+	width:100%;
+	height:300px;
+	text-align:center;
+	margin:100px 0px 100px 0px;
+	position:relative;
+}
+
+.stats{
+	top:0px;
+	margin:0px;;
+	display:inline-block;
+	background-color:white;
+	vertical-align:top;
+	width:200px;
+
+	height:200px;
+
+	.statvalue{
+		font-size:5em;
+		line-height:1em;
+	}
+}
+
+#wordcloud{
+	width:400px;
+}
+
+#dynamic-content{
+	width:100%;
+	height:650px;
+	margin: 50px 0px 50px 0px;
+	margin-left:  auto;
+	margin-right: auto;
+
+}
+
+
+$story-width: 400px;
+$story-p: 0px;
+$story-m: 25px;
+$ul-width: ($story-width + 2*$story-p + 2*$story-m)*3;
+
+ul#stories{
+height:100%;
+width:100%;
+display:inline-block;
+text-align:center;
+	margin: 0 auto;
+	width: $ul-width;
+	padding:0px;
+	margin:0px;
+	width:90%;
+	margin: 0px 5% 0px 5%;
+	li{
+		width:300px;
+		height:300px;
+		margin:5px;
+	}
+
+}
+.listory{
+
+	text-align:left;
+	margin:5px;
+	padding: 0px;
+	width:100%;
+	height:95%;
+	background-color:white;
+	display:inline-block;
+	background-color: rgb(240,240,240);
+	vertical-align:top;
+	border-radius: 3px;
+	position:relative;
+
+}
+
+
+#listory-content{
+
+	overflow:hidden;
+	height:230px;
+	#content-img{
+		position:reltive;
+		padding:0px;
+		width:$story-width;
+		height: 450px;
+	}
+	#text{
+		padding: 50px 20px 0px 20px;
+	}
+	img{
+	width:100%;
+	height:auto;
+	overflow: hidden;
+	}
+	#text2{
+		width:100%;
+		background-color:red;
+		position:absolute;
+		float:bottom;
+	}
+}
+
+.listory-meta{
+	position:absolute;
+	padding: 10px;
+	margin:10px;
+	bottom:0px;
+	float:bottom;
+	vertical-align:bottom;
+}
+
+#popup-content-text{
+	#text{
+		margin:50px 0px 50px 0px;
+		min-height:50px;
+	}
+}
+
+#popup-content-image{
+display:block;
+	width:300px;
+	height:350px;
+		img{
+			margin:10px 0px 0px 0px;
+			max-width:100%;
+			max-height:100%;
+			width:300px;
+			height:auto;
+			display:inline-block;
+		}
+	overflow:hidden;
+}
+
+	#user-image{
+		width:30px;
+		height:30px;
+		vertical-align:bottom;
+		border: 1px solid rgb(230,230,225);
+		display:inline-block;
+		background-color:white;
+	}
+	#user{
+		font-size:0.7em;
+		vertical-align:bottom;
+		a{	color:black;	}
+		padding-left:5px;
+		margin:0px;
+	}
+	#time{
+		font-size:0.7em;
+		color:gray;
+		vertical-align:top;
+		padding-left:5px;
+		margin:0px;
+	}
+
+#popup-meta{
+	display:inline-block;
+	margin:30px 0px 10px 0px;
+	#user-image{
+		width:40px;
+		vertical-align:bottom;
+		height:40px;
+		border: 1px solid rgb(200,200,195);
+		display:inline-block;
+		background-color:white;
+	}
+	#user{
+		font-size:1.2em;
+		vertical-align:bottom;
+		a{	color:black;	}
+		padding-left:5px;
+		margin:0px;
+	}
+	#time{
+		color:gray;
+		vertical-align:top;
+		padding-left:5px;
+		margin:0px;
+	}
+}
+
+#popup-next{
+	display:inline-block;
+	float:right;
+}
+
+#map-vis{
+	background-color: rgb(119,202,182);
+	width:100%;
+	height:100%;
+}
+
+

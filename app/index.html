@@ -1,0 +1,212 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+  <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
+  <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
+  <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+<script type="text/javascript" src="http://www.treesheets.org/hotlink/cts.js"></script>
+<script type="text/javascript" src="http://www.jasondavies.com/wordcloud/d3.layout.cloud.js"></script>
+<script type="text/cts" src="http://people.csail.mit.edu/eob/cts/widgets/word-cloud.cts"></script>
+
+<style>.cts-template {display:inline; margin:0; padding:0;}
+.wordcloud{
+    width:10px;
+}
+</style>
+</head>
+
+
+  <!--[if lte IE 8]>
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.ie.css' rel='stylesheet' >
+  <![endif]-->
+
+
+    </head>
+    <body>
+       
+
+        <ul id='navbar'>
+            <li id='home'>Home</li>
+            <li id='issue'>Issues</li>
+            <li id='participate'>Participate</li>
+            <li id='about'>About</li>
+        </ul>
+
+
+        <div id='content'>
+        </div>
+
+        <!-- </div> -->
+
+
+        <!-- Templates -->
+        <script type='text/template' id='list-item-image-template'>
+            <div class='listory' id='<%-id%>' >
+                <div id='listory-content'>
+                <p id='text'> <%-text%> </p>
+                    <img id='media' src='<%-media%> '>
+                </div>
+                <div class='listory-meta'>
+                    <span style='display:inline-block'>
+                    <img id='user-image' src='<%-userImage%>'> 
+                    </span><span style='display:inline-block'>
+                    <p id='user'> <%-user%> </p>
+                    <p id='time'> <%-time%> </p>
+                    </span>
+                    <!-- <p id='type'> <%-type%> </p>
+                     <p id='popularity'> <%-popularity%> </p>  -->
+                </div>
+            </div> 
+            </script>
+
+        <script type='text/template' id='list-item-template'>
+            <div class='listory' id='<%-id%>' >
+                <div id='listory-content'>
+                    <img id='media' src='<%-media%> '>
+                    <p id='text'> <%-text%> </p>
+                </div>
+                <div class='listory-meta'>
+                    <span style='display:inline-block'>
+                    <img id='user-image' src='<%-userImage%>'> 
+                    </span><span style='display:inline-block'>
+                    <p id='user'> <%-user%> </p>
+                    <p id='time'> <%-time%> </p>
+                    </span>
+                    <!-- <p id='type'> <%-type%> </p>
+                     <p id='popularity'> <%-popularity%> </p>  -->
+                </div>
+            </div>
+        </script>
+
+        <script type='text/template' id='popup-template'>
+            <div class='popup' id='<%-id%>' >
+                <div id='listory-content'>
+                    <p id='text'> <%-text%> </p>
+                </div>
+                <div id='listory-meta'>
+                   <img id='user-image' src='<%-userImage%>'> 
+                    <p id='user'> <%-user%> </p>
+                </div>
+            </div>
+        </script>
+
+
+
+        <script type='text/template' id='issue-view-template'>
+
+            <div id='editorial'> </div>
+            <div id='title-container'>
+                <div id='title'><h1>Womens issues</h1></div>
+            </div>
+            <div id='stats-container'>
+                <div class='stats' id='talkingabout'> 
+                    <p class='statvalue' id='talkingaboutvalue'> 54 </p>
+                    <p class='statlabel'> People talking about this </p>
+                </div>
+                <div class='stats' id='numstories'>  
+                    <p class='statvalue' id='numstoriesvalue'> 54 </p>
+                    <p class='statlabel'> Stories about this </p>
+                </div>
+                <div class='stats' id='wordcloud'> 
+                    <div class="wordcloud"><div class="cts-template"><div>
+                        <div class="thewordcloud">
+                            <div class="worddata" style="display:none;"> 
+                                <div class="big" style="display:none;">
+                                    <div class="big-words">important extremely large big great awesome huge ridiculous should shown</div>
+                                    <div class="big-color">purples</div>
+                                </div>
+                                <div class="medium" style="display:none;">
+                                    <div class="medium-words"> All these words should be in the word cloud hopefully it will look ok my name is Sarah I created this widget medium middle boring standard
+                                    </div>
+                                    <div class="medium-color">reds</div>
+                                </div>
+                                <div class="small" style="display:none;">
+                                    <div class="small-words">small tiny miniscule teeny mini microscopic minute mouse ant bug gerbil</div>
+                                    <div class="small-color">greens</div>
+                                </div>
+                                <ul class="properties">
+                                    <li class="width">400</li>
+                                    <li class="height">200</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class='statlabel'> Related   hashtags </p>
+                </div>
+                </div>
+            </div>
+
+</div>
+            <div id='displaycontrol'>
+                <input type='button' class='display' id='map' value='Map'>
+                <input type='button' class='display' id='list' value='List'>
+            </div>
+            <div id='dynamic-content'>
+            </div>
+        </script>
+
+        <script type='text/template' id='list-view-template'>
+        
+            <div id='stories-control' >
+                <input type='button' class='sort' id='trending'>Trending
+                <input type='button' class='sort' id='recent'>Recent
+                <input type='button' class='filter' id='twtr'>Twitter
+                <input type='button' class='filter' id='comp'>Completure
+                <input type='button' class='filter' id='none'>None
+                <input type='button' class='more' id='none'>More
+            </div>
+
+            <ul id='stories'  >
+
+            </ul>
+
+        </script>
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
+        <!-- build:js scripts/main.js -->
+        <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+  
+        <script src="components/jquery/jquery.js"></script>
+        <script src="components/bootstrap.js"></script>
+        <script src="components/backbone/test/vendor/underscore.js"></script>
+        <script src="components/backbone/backbone.js"></script>
+        <script src="scripts/models/story.js"></script>
+        <script src="scripts/collections/stories.js"></script>
+        <script src="scripts/views/appview.js"></script>
+        <script src="scripts/views/list.js"></script>
+        <script src="scripts/mymap.js"></script>
+        <script src="scripts/views/map.js"></script>
+        <script src="scripts/views/dynamicpage.js"></script>
+        <script src="scripts/routers/router.js"></script>
+        <script src="scripts/main.js"></script>
+
+        <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <!-- endbuild -->
+</body>
+</html>
