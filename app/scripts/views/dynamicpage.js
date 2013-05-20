@@ -61,23 +61,15 @@ $(function(){
 
 				$('.filter').fadeOut('fast').animate({
 		            'margin-right': '-100px'
-		            }, {duration: 'fast', queue: false}, function() {
-		            			            	console.log('done!!!!!!');
-
-		            // Animation complete.
-		        });
+		            }, {duration: 'fast', queue: false});
 				$('#trending').fadeOut('fast').animate({
 		            'margin-left': '-100px'
-		            }, {duration: 'fast', queue: false}, function() {
-		            			            	console.log('done!!!!!!');
+		            }, {duration: 'fast', queue: false});
 
-		            // Animation complete.
-		        });
 				$('#recent').fadeOut('fast').animate({
 		            'margin-left': '-100px'
 		            }, {duration: 'fast', queue: false, complete:function() {
-		            	console.log('done!!!!!!');
-		            					that.displayMap();
+		            	that.displayMap();
 		        }
 		    });
 
@@ -174,24 +166,10 @@ $(function(){
 								$('#talkingaboutvalue').html(that.talking.length);
 								$('#numstoriesvalue').html(that.numStories);
 								console.log(that.tags);
-								var min = _.max(that.tags, function(t1){
-									return (t1.count);
-								});
-								console.log("MIN "+min);
-								var max = _.max(that.tags, function(t2){
-									return t2.count;
-								});
-								console.log("MAX "+max);
-								for(var i=1;i<=20;i++){
+
+								for(var i=1;i<=10;i++){
 									if (that.tags[i]!=undefined){
-										if (that.tags[i]< min+(max-min)/3){
-
-										} else 
-										if (that.tags[i]< min+2*(max-min)/3) {
-
-										} else {
-
-										}
+										$('#tags').append("<li> " + i + " :  <strong> "+that.tags[i].tag+" </strong> </li>");
 									}
 								}
 							}
@@ -206,14 +184,14 @@ $(function(){
 
 		displayMap: function(){
 			this.reset();
-						$(this.el).append("<div id='dynamic-content'></div>");
+			 $(this.el).append("<div id='dynamic-content'></div>");
 
-			this.visual = new app.Views.Map({"issue":this.options.issue});
+			 this.visual = new app.Views.Map({"issue":this.options.issue});
 		},
 
 		displayList: function(){
 			 this.reset();
-			 			$(this.el).append("<div id='dynamic-content'></div>");
+			  $(this.el).append("<div id='dynamic-content'></div>");
 
 			this.visual = new app.Views.List({"issue":this.options.issue});
 		}		

@@ -107,26 +107,34 @@
         <script type='text/template' id='issue-view-template'>
 
             <div id='editorial'> </div>
-            <div id='title-container'>
-                <div id='title'><h1>Womens issues</h1></div>
-            </div>
-            <div id='stats-container'>
-                <div class='stats' id='talkingabout'> 
-                    <p class='statvalue' id='talkingaboutvalue'> 54 </p>
-                    <p class='statlabel'> People talking about this </p>
+            <div id='editorial-content'>
+                <div id='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis orci sapien, scelerisque ut iaculis sed, blandit eget justo. Morbi porttitor diam non lacus fermentum ut ultrices eros lobortis. Aliquam erat volutpat. Etiam eu mauris sem. Curabitur id turpis lacus. Curabitur vel ullamcorper odio. Aliquam fermentum tortor quis mi scelerisque malesuada. Mauris sollicitudin nisi eu sapien facilisis iaculis. Aliquam vel nibh enim. Phasellus lacinia suscipit nibh quis varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis aliquet eros, a dignissim ligula lacinia sit amet. Donec pellentesque varius velit eu viverra. 
                 </div>
-                <div class='stats' id='numstories'>  
-                    <p class='statvalue' id='numstoriesvalue'> 54 </p>
-                    <p class='statlabel'> Stories about this </p>
+                <div id='relatedtags'>
+                    <h2> Related Tags </h2>
+                    <ol id='tags'>
+                    </ol>
+
                 </div>
-                <div class='stats' id='wordcloud'> 
-                    <p class='statlabel'> Related   hashtags </p>
-                </div>
-                </div>
+                <div id='stats-container'>
+                    <div class='stats' id='talkingabout'> 
+                        <p class='statvalue' id='talkingaboutvalue'> 54 </p>
+                        <p class='statlabel'> Talking about this </p>
+                    </div>
+                    <div class='stats' id='numstories'>  
+                        <p class='statvalue' id='numstoriesvalue'> 54 </p>
+                        <p class='statlabel'> Stories about this </p>
+                    </div>
+                    <div class='stats' id='numstories'>  
+                        <p class='statvalue' id='numstoriesvalue'> 54 </p>
+                        <p class='statlabel'> Stories about this </p>
+                    </div>
+                    </div>
             </div>
 
-</div>
-  <div id='stories-control' >
+
+
+         <div id='stories-control' >
                 <div class='sort' id='label'>View by:</div>
                 <div class='sort' id='trending'>Trending</div>
                 <div class='sort' id='recent'>Recent</div>
@@ -136,10 +144,12 @@
                 <div class='filter' id='comp'>Completure</div>
                 <div class='filter' id='label'>Filter by:</div>
              <!--   <div class='more' id='none'>More</div> -->
-            </div>         
+        </div>         
+
 
             <div id='dynamic-content'>
             </div>
+     
         </script>
 
         <script type='text/template' id='list-view-template'>

@@ -30,7 +30,6 @@ $(function () {
         },
 
         initialize: function () {
-
             ////console.log('initalizing');
 
             this.issue = this.options.issue;
@@ -63,6 +62,12 @@ $(function () {
             this.collection.bind('reset', this.reset);
 
             this.fetchStories(20);
+
+
+            var that = this;
+            $('.sort').on('click', function(t){that.sortStories(t) })
+            $('.filter').on('click', function(t){that.filterStories(t) })
+
         },
 
         render: function () {
