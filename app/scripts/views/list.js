@@ -139,36 +139,18 @@ $(function () {
             if (n === undefined || typeof (n) != "number")
                 n = 20;
 
-            ////console.log('fetching stories by '+ this._sort);
-
             var l = this.collection.length;
             var count = 0;
-            // if (this._filter=="none"){
             if (this._sort == 'recent')
                 this._fetchStoriesByRecent(n);
             else
                 this._fetchStoriesByTrending(n);
-            // } else {
-            // 	while (this.collection.length < l+n && count<20){
-            // 		////console.log("AT COUNT"+count);
-            // 		////console.log("Trying to reach "+(l+n));
-            // 		////console.log("Still at "+this.collection.length);
-            // 		if (this._sort == 'recent')
-            // 			count = count + this._fetchStoriesByRecent(n/2);
-            // 		else 
-            // 			count = count + this._fetchStoriesByTrending(n/2);
-            // 	}
-            // }
-
         },
 
         sortStories: function (t) {
-            ////console.log(t.toElement.id);
             if (t.toElement.id != 'recent' && t.toElement.id != 'trending') return;
-            ////console.log('ok');
             var sortBy = t.toElement.id;
             if (this._sort != sortBy) {
-                ////console.log('Sorting by '+sortBy);
                 this._firstFetch = true;
                 this.collection.reset();
                 this._sort = sortBy;
@@ -431,6 +413,8 @@ $(function () {
     app.Views.ListItem = Backbone.View.extend({
 
         tagName: "li",
+
+        id:"s0",
 
         template: _.template($('#list-item-template').html()),
         imagetemplate: _.template($('#list-item-image-template').html()),

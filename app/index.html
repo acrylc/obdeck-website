@@ -56,7 +56,6 @@
         <script type='text/template' id='list-item-image-template'>
             <div class='listory' id='<%-id%>' >
                 <div id='listory-content'>
-                <p id='text'> <%-text%> </p>
                     <img id='media' src='<%-media%> '>
                 </div>
                 <div class='listory-meta'>
@@ -121,53 +120,41 @@
                     <p class='statlabel'> Stories about this </p>
                 </div>
                 <div class='stats' id='wordcloud'> 
-                    <div class="wordcloud"><div class="cts-template"><div>
-                        <div class="thewordcloud">
-                            <div class="worddata" style="display:none;"> 
-                                <div class="big" style="display:none;">
-                                    <div class="big-words">important extremely large big great awesome huge ridiculous should shown</div>
-                                    <div class="big-color">purples</div>
-                                </div>
-                                <div class="medium" style="display:none;">
-                                    <div class="medium-words"> All these words should be in the word cloud hopefully it will look ok my name is Sarah I created this widget medium middle boring standard
-                                    </div>
-                                    <div class="medium-color">reds</div>
-                                </div>
-                                <div class="small" style="display:none;">
-                                    <div class="small-words">small tiny miniscule teeny mini microscopic minute mouse ant bug gerbil</div>
-                                    <div class="small-color">greens</div>
-                                </div>
-                                <ul class="properties">
-                                    <li class="width">400</li>
-                                    <li class="height">200</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                     <p class='statlabel'> Related   hashtags </p>
                 </div>
                 </div>
             </div>
 
 </div>
-            <div id='displaycontrol'>
-                <input type='button' class='display' id='map' value='Map'>
-                <input type='button' class='display' id='list' value='List'>
-            </div>
+  <div id='stories-control' >
+                <div class='sort' id='label'>View by:</div>
+                <div class='sort' id='trending'>Trending</div>
+                <div class='sort' id='recent'>Recent</div>
+                <div class='display' id='map'>Map</div>
+                <div class='filter' id='none'>None</div>
+                <div class='filter' id='twtr'>Twitter</div>
+                <div class='filter' id='comp'>Completure</div>
+                <div class='filter' id='label'>Filter by:</div>
+             <!--   <div class='more' id='none'>More</div> -->
+            </div>         
+
             <div id='dynamic-content'>
             </div>
         </script>
 
         <script type='text/template' id='list-view-template'>
         
-            <div id='stories-control' >
-                <input type='button' class='sort' id='trending'>Trending
-                <input type='button' class='sort' id='recent'>Recent
-                <input type='button' class='filter' id='twtr'>Twitter
-                <input type='button' class='filter' id='comp'>Completure
-                <input type='button' class='filter' id='none'>None
-                <input type='button' class='more' id='none'>More
-            </div>
+       <!--     <div id='stories-control' >
+                <div class='sort' id='label'>View by:</div>
+                <div class='sort' id='trending'>Trending</div>
+                <div class='sort' id='recent'>Recent</div>
+                <div class='sort' id='map'>Map</div>
+                <div class='filter' id='none'>None</div>
+                <div class='filter' id='twtr'>Twitter</div>
+                <div class='filter' id='comp'>Completure</div>
+                <div class='filter' id='label'>Filter by:</div>
+               <div class='more' id='none'>More</div> 
+            </div> -->
 
             <ul id='stories'  >
 

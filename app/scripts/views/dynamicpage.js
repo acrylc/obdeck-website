@@ -53,10 +53,57 @@ $(function(){
 		},
 
 		displayStories: function(t){
+					        var that = this;
+
 			if (t.toElement.id == 'map'){
-				this.displayMap();			
+				document.getElementById('map').id='list';
+				$('.display').html("List");
+
+				$('.filter').fadeOut('fast').animate({
+		            'margin-right': '-100px'
+		            }, {duration: 'fast', queue: false}, function() {
+		            			            	console.log('done!!!!!!');
+
+		            // Animation complete.
+		        });
+				$('#trending').fadeOut('fast').animate({
+		            'margin-left': '-100px'
+		            }, {duration: 'fast', queue: false}, function() {
+		            			            	console.log('done!!!!!!');
+
+		            // Animation complete.
+		        });
+				$('#recent').fadeOut('fast').animate({
+		            'margin-left': '-100px'
+		            }, {duration: 'fast', queue: false, complete:function() {
+		            	console.log('done!!!!!!');
+		            					that.displayMap();
+		        }
+		    });
+
+
 			} else {
 				this.display = 'list';
+				document.getElementById('list').id='map';
+				$('.display').html("Map");
+
+				// animations
+				$('.filter').fadeIn('fast').animate({
+		            'margin-right': '0px'
+		            }, {duration: 'fast', queue: false}, function() {
+		            // Animation complete.
+		        });
+				$('#trending').fadeIn('fast').animate({
+		            'margin-left': '0px'
+		            }, {duration: 'fast', queue: false}, function() {
+		            // Animation complete.
+		        });
+				$('#recent').fadeIn('fast').animate({
+		            'margin-left': '0px'
+		            }, {duration: 'fast', queue: false}, function() {
+		            // Animation complete.
+		        });
+
 				this.displayList();
 			} 
 		},
@@ -127,19 +174,26 @@ $(function(){
 								$('#talkingaboutvalue').html(that.talking.length);
 								$('#numstoriesvalue').html(that.numStories);
 								console.log(that.tags);
-								var min = _.each(that.tags, function(t1,t2){
-									return (t1.count<t2.count);
+								var min = _.max(that.tags, function(t1){
+									return (t1.count);
 								});
 								console.log("MIN "+min);
-								var max = _.each(that.tags, function(t1,t2){
-									return (t1.count>t2.count);
+								var max = _.max(that.tags, function(t2){
+									return t2.count;
 								});
 								console.log("MAX "+max);
-								// for(var i=1;i<=20;i++){
-								// 	if (that.tags[i]!=undefined){
-								// 		if i<
-								// 	}
-								// }
+								for(var i=1;i<=20;i++){
+									if (that.tags[i]!=undefined){
+										if (that.tags[i]< min+(max-min)/3){
+
+										} else 
+										if (that.tags[i]< min+2*(max-min)/3) {
+
+										} else {
+
+										}
+									}
+								}
 							}
 						});
                 }

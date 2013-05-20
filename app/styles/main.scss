@@ -5,13 +5,18 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import 'sass-bootstrap/lib/bootstrap';
 
 
+html{
+	::selection{
+		background-color: #81D8D0;
+	}
+}
 
 body{
 	width:100%;
 	height:100%;
 	margin:0px;
 	font-family: 'Raleway', Helvetica, sans-serif;
-	background-color: rgb(250,250,250);
+	background-color: rgb(240,240,240);
 }
 
 a{
@@ -38,6 +43,46 @@ a{
 	}
 }
 
+#stories-control{
+
+		border-bottom: 1px solid rgba(180,180,180,0.5);
+		border-top: 1px solid rgba(180,180,180,0.5);
+		margin-left:  15%;
+		padding: 20px 0px 60px 0px;
+
+		width:70%;
+		font-size:1em;
+		.sort, .filter, .display{
+			display:inline-block;
+			padding:10px;
+			float:left;
+			cursor:pointer;
+			width:75px;
+			text-align:center;
+
+			&:hover{
+				background-color: #9b59b6;
+				color:white;
+			}
+		}
+		.filter{
+			float:right;
+		}
+		#label{
+			color:gray;
+			font-size:0.8em;
+			width:auto;
+			padding:none;
+			&:hover{
+			background-color:rgba(0,0,0,0);
+			}
+		}
+		.display{
+			&:hover{
+			background-color:#81D8D0;
+			}
+		}
+}
 #displaycontrol{
 		margin-left:15%;
 		width:70%;
@@ -128,33 +173,37 @@ $story-m: 25px;
 $ul-width: ($story-width + 2*$story-p + 2*$story-m)*3;
 
 ul#stories{
-height:100%;
 width:100%;
 display:inline-block;
 text-align:center;
+
 	margin: 0 auto;
-	width: $ul-width;
 	padding:0px;
 	margin:0px;
 	width:90%;
 	margin: 0px 5% 0px 5%;
 	li{
-		width:300px;
 		height:300px;
-		margin:5px;
+		width:250px;
+		margin:10px;
+
 	}
 
 }
 .listory{
+	border: 1px solid rgba(200,200,200,0.5);
+	&:hover{
+		border-bottom: 2px  #9b59b6 solid;
+		}
 
 	text-align:left;
 	margin:5px;
 	padding: 0px;
 	width:100%;
-	height:95%;
+
+	height:100%;
 	background-color:white;
 	display:inline-block;
-	background-color: rgb(240,240,240);
 	vertical-align:top;
 	border-radius: 3px;
 	position:relative;
@@ -165,7 +214,7 @@ text-align:center;
 #listory-content{
 
 	overflow:hidden;
-	height:230px;
+	height:100%;
 	#content-img{
 		position:reltive;
 		padding:0px;
@@ -224,6 +273,7 @@ display:block;
 		height:30px;
 		vertical-align:bottom;
 		border: 1px solid rgb(230,230,225);
+		border-radius:15px;
 		display:inline-block;
 		background-color:white;
 	}
@@ -242,6 +292,15 @@ display:block;
 		margin:0px;
 	}
 
+.storypreview{
+	margin: 0px;
+	width: 100%;
+	height: 5px;
+	background-color: #9b59b6;
+	margin-top:10px;
+	box-shadow: 0px 0px 1px 1px rgba(150,150,150,0.3);
+}
+
 #popup-meta{
 	display:inline-block;
 	margin:30px 0px 10px 0px;
@@ -250,6 +309,7 @@ display:block;
 		vertical-align:bottom;
 		height:40px;
 		border: 1px solid rgb(200,200,195);
+		border-radius:20px;
 		display:inline-block;
 		background-color:white;
 	}
