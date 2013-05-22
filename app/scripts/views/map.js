@@ -25,7 +25,7 @@ $(function () {
 			var that = this;
 
 			this.map = app.MyMap.init(9);
-			// this.map.scrollWheelZoom.disable();
+			 this.map.scrollWheelZoom.disable();
 			this.map.doubleClickZoom.enable();
 
 			// we have 18 zoom levels (2-19)

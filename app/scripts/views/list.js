@@ -30,7 +30,6 @@ $(function () {
         },
 
         initialize: function () {
-            ////console.log('initalizing');
 
             this.issue = this.options.issue;
             this.render();
@@ -65,16 +64,14 @@ $(function () {
 
 
             var that = this;
-            $('.sort').on('click', function(t){that.sortStories(t) })
-            $('.filter').on('click', function(t){that.filterStories(t) })
-
+            $('.sort').on('click', function(t){that.sortStories(t) });
+            $('.filter').on('click', function(t){that.filterStories(t) });
+            $('.more').on('click', function(){that.fetchStories() });
         },
 
         render: function () {
-            //////console.log('rendering');		
             $(this.el).empty();
             $(this.el).html((this.template()));
-            //////console.log((this.template()));
 
             this._rendered = true;
 
@@ -88,7 +85,6 @@ $(function () {
         },
 
         reset: function () {
-            ////console.log('reseting');
             $('#stories').empty();
             this._storyViews = [];
                         this._storiesCache = [];
@@ -109,9 +105,11 @@ $(function () {
 
         // add individual story 
         add: function (story) {
-
+            that = this;
+            i = "s"+(this.collection.indexOf(story)+1);
             var view = new app.Views.ListItem({
                 tagName: 'li',
+                id: i,
                 model: story
             });
 
@@ -124,8 +122,6 @@ $(function () {
 
         remove2: function (story) {
             var viewToRemove = story;
-            //////console.log(viewToRemove);
-            //////console.log('STORY'+story);
             this._storyViews = _(this._storyViews).without(viewToRemove);
             if (this._rendered) $(viewToRemove.el).remove();
         },
@@ -164,18 +160,14 @@ $(function () {
         },
 
         filterStories: function (t) {
-            ////console.log("ELEMENT ID" + t.toElement.id);
             if (t.toElement.id != 'twtr' && t.toElement.id != 'comp' && t.toElement.id != 'none') return;
             var filter = t.toElement.id;
             if (this._filter != filter) {
-                ////console.log('filtering by '+filter);
                 this._firstFetch = true;
                 this.collection.reset();
                 this._filter = filter;
                 this.numStoriesFetched = 0;
                 this._storiesCache = [];
-
-                ////console.log(this.collection.length);
                 this.fetchStories();
             }
         },
@@ -212,7 +204,6 @@ $(function () {
             // Then start fetching, and stop when you reach that number
             ref.on('child_added', function (snapshot, prevName) {
                 if (snapshot.val() === null) {
-                    ////////console.log('no found images');
                 } else {
                     // Save refs to stories
                     that.tmpRefs[that.tmpRefs.length] = snapshot.val();
@@ -220,19 +211,12 @@ $(function () {
                     var storyref = snapshot.val();
                     // Get the story from global list of stories
                     var story = new Firebase('https://lebelec.firebaseio.com/stories/' + snapshot.val());
-                    ////console.log('got story '+ story);
                     story.on('value', function (snapshot) {
                         if (snapshot.val() === null) {
-                            ////console.log('No found images!');
                         } else {
 
-                            // If there is no filter, we add everything
-                            ////console.log(snapshot.name());
                             var s = snapshot.val();
-                            //console.log("Current filter: "+that._filter);
-                            //console.log("Current type: "+s.type);
                             that.numSnapshotsFetched =that.numSnapshotsFetched+1;
-                            //console.log(that.numStoriesFetched);
                             if (that._filter == "none" || s.type == that._filter) {
                                 var story = new app.Models.Story({
                                     id: snapshot.name(),
@@ -250,36 +234,21 @@ $(function () {
                                     ref: storyref
                                 });
                                 that._storiesCache.push(story);
-                                that.tmpPriorities[that.tmpPriorities.length] = s.popularity;
-
-                                //console.log(that._storiesCache.length);
-                                
+                                that.tmpPriorities[that.tmpPriorities.length] = s.popularity;                                
                             }
-
-                            // Done fetching
                             if (that.numSnapshotsFetched == that.numStoriesToFetch) {
 
 										that._storiesCache.sort(function (a, b) {
 	                                        return a.toJSON().popularity - b.toJSON().popularity;
 	                                    });
-	                                    //console.log(that._storiesCache);
 	                                    that.collection.add(that._storiesCache);
-	                                    //console.log('Added the new cache of stories');
-	                                    //console.log(that.numStoriesFetched);
 	                                    that.numStoriesFetched = that.numStoriesFetched + that._storiesCache.length;
 	                                    that._storiesCache = [];
-
-	                                    //console.log("STORIES FETCHED " + that.numStoriesFetched);
-	                                    //console.log("STORIES TO FETCH " + num);
                             		if (that.numStoriesToFetch > 1 && that._filter!="none" && that.numStoriesFetched<num){
-                            			//console.log('another fetch');
                             			that.fetchStories(20);
                             		} else {
                             			that.numStoriesFetched = 0;
-                            		}
-
-	                                    
-	                                
+                            		}                
                                 }
                         }
                     });
@@ -291,8 +260,6 @@ $(function () {
 
         // Get,s the next 'num' stories for the given issue
         _fetchStoriesByRecent: function (num) {
-
-            ////console.log('fetching stories by recent');
             if (num === undefined || typeof (num) != "number")
                 num = 20;
 
@@ -314,7 +281,6 @@ $(function () {
             // First figure out how many stories I can fetch
             this.numStoriesToFetch = null;
             ref.once('value', function (snapshot) {
-                //console.log('Getting ' + snapshot.numChildren() + 'more snapshots');
                 that.numStoriesToFetch = snapshot.numChildren();
             });
 
@@ -324,7 +290,7 @@ $(function () {
             // Then start fetching, and stop when you reach that number
             ref.on('child_added', function (snapshot, prevName) {
                 if (snapshot.val() === null) {
-                    ////////console.log('no found images');
+                    ////////consoages');
                 } else {
                     // Save refs to stories
                     that.tmpRefs[that.tmpRefs.length] = snapshot.val();
@@ -332,19 +298,15 @@ $(function () {
                     var storyref = snapshot.val();
                     // Get the story from global list of stories
                     var story = new Firebase('https://lebelec.firebaseio.com/stories/' + snapshot.val());
-                    //console.log('got story '+ story);
+                    //conso+ story);
                     story.on('value', function (snapshot) {
                         if (snapshot.val() === null) {
-                            ////console.log('No found images!');
+                            ////consoages!');
                         } else {
 
                             // If there is no filter, we add everything
-                            ////console.log(snapshot.name());
                             var s = snapshot.val();
-                            //console.log("Current filter: "+that._filter);
-                            //console.log("Current type: "+s.type);
                             that.numStoriesFetched =that.numStoriesFetched+1;
-                            //console.log(that.numStoriesFetched);
                             if (that._filter == "none" || s.type == that._filter) {
                                 var story = new app.Models.Story({
                                     id: snapshot.name(),
@@ -361,17 +323,15 @@ $(function () {
                                     popularity: s.priority,
                                     ref: storyref
                                 });
-                                that._storiesCache.push(story);
-                                //console.log(that._storiesCache.length);
-                                
+                                that._storiesCache.push(story);                                
                             }
                             if (that.numStoriesFetched == that.numStoriesToFetch) {
                                     that._storiesCache.sort(function (a, b) {
                                         return a.toJSON().popularity - b.toJSON().popularity;
                                     });
-                                    //console.log(that._storiesCache);
+                                    //consosCache);
                                     that.collection.add(that._storiesCache);
-                                    //console.log('Added the new cache of stories');
+                                    //consoew cache of stories');
                                     that.numStoriesToFetch = null;
                                 }
                         }
@@ -384,7 +344,7 @@ $(function () {
         _storeSnapshot: function (snapshot) {
             var that = this;
             if (snapshot.val() === null) {
-                ////console.log('No found images!');
+                ////consoages!');
             } else {
 
                 // If there is no filter, we add everything
@@ -406,7 +366,7 @@ $(function () {
                     that.tmpPriorities[that.tmpPriorities.length] = s.priority;
                 }
             }
-            ////console.log(that.collection);
+            ////consoion);
         }
 
     });
@@ -423,15 +383,13 @@ $(function () {
 
         template: _.template($('#list-item-template').html()),
         imagetemplate: _.template($('#list-item-image-template').html()),
+        previewtemplate: _.template($('#story-preview-template').html()),
+        previewimagetemplate: _.template($('#story-image-preview-template').html()),
 
         // The DOM events specific to an item.
         // decide on these later
         events: {
-            // "click .toggle"   : "toggleDone",
-            // "dblclick .view"  : "edit",
-            // "click a.destroy" : "clear",
-            // "keypress .edit"  : "updateOnEnter",
-            // "blur .edit"      : "close"
+             "click .listory"   : "stuff",
         },
 
         // The ListElement listens for changes to its model, re-rendering.
@@ -439,7 +397,77 @@ $(function () {
             this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.model, 'destroy', this.remove);
             this.render();
-        },
+            that = this;
+            // $(this.el).on('click', function(t){
+            //     console.log('clicked');
+            //      var index = Number((this.id).substr(1));
+            //      console.log(index);
+            //      if (index!=undefined){
+            //         // if mod 4 or is last/part of last row
+            //         if(index%4==0 ){
+            //             idToAppend = '#'+this.id;
+            //         } else {
+            //             k = index+4 - (index%4);
+            //             idToAppend = '#s'+k;
+            //         }
+            //         console.log(idToAppend);
+            //         if ($('.storypreview').length == 0){
+            //             //adding first one
+
+            //             $(idToAppend).after(that.previewtemplate(stor.toJSON()));
+
+            //             $('.storypreview').slideDown('slow');
+            //         } else {
+            //         $('.storypreview').slideUp({duration: 'fast', complete:function() {
+            //             $('.storypreview').remove();
+            //             $(idToAppend).after(that.previewtemplate(stor.toJSON()));
+            //             $('.storypreview').slideDown( 'slow');
+            //         }
+            //         });
+            //         }
+            //     }
+            // });    
+         },
+
+         stuff: function(){
+            var that = this;
+                console.log('clicked');
+                 var index = Number((this.id).substr(1));
+                 console.log(index);
+                 if (index!=undefined){
+                    // if mod 4 or is last/part of last row
+                    if(index%4==0 ){
+                        idToAppend = '#'+this.id;
+                    } else {
+                        k = index+4 - (index%4);
+                        idToAppend = '#s'+k;
+                    }
+                    console.log(idToAppend);
+                    if ($('.storypreview').length == 0){
+                        //adding first one
+
+                        if (that.model.toJSON().media == "" || that.model.toJSON().media == undefined ){
+                            $(idToAppend).after(that.previewtemplate(that.model.toJSON()));
+                        } else {
+                            $(idToAppend).after(that.previewimagetemplate(that.model.toJSON()));
+                        }
+                        $('.storypreview').slideDown('slow');
+
+                    } else {
+                    $('.storypreview').slideUp({duration: 'fast', complete:function() {
+                        $('.storypreview').remove();
+                        if (that.model.toJSON().media == "" || that.model.toJSON().media == undefined ){
+                            $(idToAppend).after(that.previewtemplate(that.model.toJSON()));
+                        } else {
+                            $(idToAppend).after(that.previewimagetemplate(that.model.toJSON()));
+                        }
+                        $('.storypreview').slideDown( 'slow');
+                    }
+                    });
+                    }
+                }
+
+         },
 
         // Re-render the titles of the todo item.
         render: function () {

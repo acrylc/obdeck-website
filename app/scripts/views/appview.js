@@ -19,6 +19,7 @@ $(function(){
 		// Listen to navbar, update content accordingly
 		events: {
 			"click #home":  "navigateHome",
+			"click #issue": "navigateIssues"
 		},
 
 		initialize: function() {
@@ -40,6 +41,14 @@ $(function(){
 			// clear DOM
 			$('#content').empty();
 			var view = new app.Views.IssueView({'issue':issue});
+		},
+
+		navigateIssues: function(){
+				console.log('issues');
+
+			app.router.navigate('/issues');
+			var view = new app.Views.IssuePage({});
+
 		}
 
 	});
