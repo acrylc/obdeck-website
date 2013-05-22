@@ -17,15 +17,7 @@
   <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
   <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
   <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
-<script type="text/javascript" src="http://www.treesheets.org/hotlink/cts.js"></script>
-<script type="text/javascript" src="http://www.jasondavies.com/wordcloud/d3.layout.cloud.js"></script>
-<script type="text/cts" src="http://people.csail.mit.edu/eob/cts/widgets/word-cloud.cts"></script>
 
-<style>.cts-template {display:inline; margin:0; padding:0;}
-.wordcloud{
-    width:10px;
-}
-</style>
 </head>
 
 
@@ -90,6 +82,57 @@
             </div>
         </script>
 
+        <script type='text/template' id='story-preview-template'>
+            <div class='storypreview'>
+                <div id='previewtext'>
+                <p id='text'> <%-text%> </p>
+                <p id='user'> <%-user%> </p>
+                <p id='time'> <%-time%> </p>
+                <p id='type'> <%-type%> </p>
+                <p id='popularity'> <%-popularity%> </p> 
+                </div> 
+            </div>
+        </script>
+
+        <script type='text/template' id='story-image-preview-template'>
+            <div class='storypreview'>
+                <img src='<%-media%> '>
+                <div id='previewtext'>
+                <p id='text'> <%-text%> </p>
+                <p id='user'> <%-user%> </p>
+                <p id='time'> <%-time%> </p>
+                <p id='type'> <%-type%> </p>
+                <p id='popularity'> <%-popularity%> </p> 
+                </div> 
+            </div>
+        </script>
+
+        <script type='text/template' id='issues-template'>
+
+            <div id='issues' class='inner'>
+                <div id='editorialissues'>
+                    <div class='issue' id='women'>Women</div>
+                    <div class='issue' id='corruption'>Corruption></div>
+                    <div class='issue' id='bribery'>Bribery</div>
+                    <div class='issue' id='lebanon'>Lebanon</div>
+                </div>
+
+                <input id='search' type="text" placeholder='Or search for a specific hashtag, ex. #batata'>
+
+                <div id='description'>A short description of what these Issues are. Mauris sollicitudin nisi eu sapien facilisis iaculis. Aliquam vel nibh enim. Phasellus lacinia suscipit nibh quis varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis aliquet eros, a dignissim ligula lacinia sit amet. Donec pellentesque varius velit eu viverra. </div>
+                <div id='relatedtags'>
+                    <h2> Trending hashtags </h2>
+                    <ol id='tags'>
+                        <li>Lebanon</li>
+                        <li>Beirut</li>
+                        <li>Elections</li>
+
+                    </ol>
+                </div>
+            </div>  
+
+        </script>
+
         <script type='text/template' id='popup-template'>
             <div class='popup' id='<%-id%>' >
                 <div id='listory-content'>
@@ -118,15 +161,15 @@
                 </div>
                 <div id='stats-container'>
                     <div class='stats' id='talkingabout'> 
-                        <p class='statvalue' id='talkingaboutvalue'> 54 </p>
+                        <p class='statvalue' id='talkingaboutvalue'> 0 </p>
                         <p class='statlabel'> Talking about this </p>
                     </div>
                     <div class='stats' id='numstories'>  
-                        <p class='statvalue' id='numstoriesvalue'> 54 </p>
+                        <p class='statvalue' id='numstoriesvalue'> 0 </p>
                         <p class='statlabel'> Stories about this </p>
                     </div>
                     <div class='stats' id='numstories'>  
-                        <p class='statvalue' id='numstoriesvalue'> 54 </p>
+                        <p class='statvalue' id='numstoriesvalue'> 0 </p>
                         <p class='statlabel'> Stories about this </p>
                     </div>
                     </div>
@@ -143,7 +186,7 @@
                 <div class='filter' id='twtr'>Twitter</div>
                 <div class='filter' id='comp'>Completure</div>
                 <div class='filter' id='label'>Filter by:</div>
-             <!--   <div class='more' id='none'>More</div> -->
+                <div class='more' id='none'>More</div> 
         </div>         
 
 
@@ -193,6 +236,7 @@
         <script src="components/backbone/backbone.js"></script>
         <script src="scripts/models/story.js"></script>
         <script src="scripts/collections/stories.js"></script>
+        <script src="scripts/views/issuepage.js"></script>
         <script src="scripts/views/appview.js"></script>
         <script src="scripts/views/list.js"></script>
         <script src="scripts/mymap.js"></script>

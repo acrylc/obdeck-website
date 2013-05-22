@@ -21,6 +21,7 @@ $(function(){
 
 	displayDynamicPage: function(id){
 		console.log('Fetching stories for '+id);
+		id = id.toLowerCase();
 		app.vent.trigger('displayIssue', id);
 	},
 

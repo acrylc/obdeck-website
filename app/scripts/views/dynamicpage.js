@@ -110,7 +110,7 @@ $(function(){
 			this.count = 0;
 			stor=[];
 
-			            var ref5 = new Firebase('https://lebelec.firebaseio.com/hashtags/' + this.options.issue + '/trending');
+			var ref5 = new Firebase('https://lebelec.firebaseio.com/hashtags/' + this.options.issue + '/trending');
 
 
         	ref5.once('value', function (snapshot) {
@@ -118,7 +118,7 @@ $(function(){
         		that.numStories = snapshot.numChildren();
         		//console.log("NUM STORIES" +that.numStories);
 
- ref5.on('child_added', function (snapshot, prevName) {
+ 				ref5.on('child_added', function (snapshot, prevName) {
                 if (snapshot.val() === null) {
                 } else {
                 	//console.log(that.talking.length);
@@ -165,8 +165,7 @@ $(function(){
 								//console.log("LENGTH" + that.talking.length);
 								$('#talkingaboutvalue').html(that.talking.length);
 								$('#numstoriesvalue').html(that.numStories);
-								console.log(that.tags);
-
+								
 								for(var i=1;i<=10;i++){
 									if (that.tags[i]!=undefined){
 										$('#tags').append("<li> " + i + " :  <strong> "+that.tags[i].tag+" </strong> </li>");
