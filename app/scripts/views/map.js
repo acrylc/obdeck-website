@@ -24,7 +24,7 @@ $(function () {
 			this.issue = this.options.issue;
 			var that = this;
 
-			this.map = app.MyMap.init(9);
+			this.map = app.MyMap.init(8);
 			 this.map.scrollWheelZoom.disable();
 			this.map.doubleClickZoom.enable();
 

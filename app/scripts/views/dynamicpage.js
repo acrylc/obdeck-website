@@ -183,14 +183,18 @@ $(function(){
 
 		displayMap: function(){
 			this.reset();
-			 $(this.el).append("<div id='dynamic-content'></div>");
+			console.log('displaying map');
+			$('.more').css({'display':'none'});
+			 $(this.el).children('#d').append("<div id='dynamic-content'></div>");
 
 			 this.visual = new app.Views.Map({"issue":this.options.issue});
 		},
 
 		displayList: function(){
 			 this.reset();
-			  $(this.el).append("<div id='dynamic-content'></div>");
+			 			$('.more').css({'display':'block'});
+
+			  $(this.el).children('#d').append("<div id='dynamic-content'></div>");
 
 			this.visual = new app.Views.List({"issue":this.options.issue});
 		}		

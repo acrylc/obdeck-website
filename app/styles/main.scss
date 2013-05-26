@@ -1,6 +1,8 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
-@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400,600);
+
 
 @import 'sass-bootstrap/lib/bootstrap';
 
@@ -15,8 +17,9 @@ body{
 	width:100%;
 	height:100%;
 	margin:0px;
-	font-family: 'Raleway', Helvetica, sans-serif;
+	font-family: 'Lato', Helvetica, sans-serif;
 	background-color: rgb(240,240,240);
+	margin-bottom:50px;
 }
 
 a{
@@ -48,10 +51,10 @@ a{
 	clear:both;
 		border-bottom: 1px solid rgba(180,180,180,0.5);
 		border-top: 1px solid rgba(180,180,180,0.5);
-		margin:  50px 0px 50px 15%;
-		padding: 20px 0px 60px 0px;
+		margin:  0px;
+		padding: 10px 0px 50px 0px;
 
-		width:70%;
+		width:100%;
 		font-size:1em;
 		.sort, .filter, .display{
 			display:inline-block;
@@ -110,13 +113,22 @@ li{
 	display:inline-block;
 }
 
-#editorial{
+.editorial.hero{
 	width:100%;
-	height:500px;
+	height:300px;
+	background-color:#EB6A5D;
 	margin-left:  auto;
 	margin-right: auto;
-	background: url('/images/womenvoting.jpg') no-repeat;
 	background-size:100%;
+	padding:0px;
+	margin:0px;
+	text-align:center;
+}
+.editorial#title{
+	clear:both;
+	padding:0px;
+	margin:0px;
+	font-size:3em;
 
 }
 
@@ -187,11 +199,16 @@ li{
 
 	}
 
-#editorial-content{
+.editorial.description{
 	position:relative;
 	width:70%;
-	margin: 100px 15% 250px 15%;
+	margin: 0px;
 	height:400px;
+	margin-top:-100px;
+	background-color:white;
+	margin-left:auto;
+	margin-right: auto;
+	padding:20px;
 
 	#description{
 		width:50%;
@@ -203,11 +220,11 @@ li{
 }
 
 #dynamic-content{
-	width:100%;
-	height:650px;
-	margin: 50px 0px 50px 0px;
+	width:90%;
+	margin: 20px 0px 50px 0px;
 	margin-left:  auto;
 	margin-right: auto;
+	min-height:500px;
 
 }
 
@@ -395,7 +412,7 @@ display:block;
 #map-vis{
 	background-color: rgb(119,202,182);
 	width:100%;
-	height:100%;
+	height:600px;
 }
 
 .issue{
@@ -427,4 +444,92 @@ display:block;
 	}
 }
 
+.head{
+	width:70%;
+	margin:0 15% 0 15%;
+	h1{
+		margin-top:100px;
+		font-size:2em;
+		margin:0px;	
+		padding:0px;
+		line-height:0.5em;
+		font-weight:900;
+		color:rgb(48,49,54);
+	}
+	h2{
+		color:gray;
+		font-size:1.3em;
+		font-weight:400;
+	}
+}
+
+.section{
+	margin: 100px 0px 50px 0px;
+	width:100%;
+}
+.footer{
+	width:70%;
+	margin: 30px 15% 30px 15%;
+	border-bottom: 1px solid rgba(180,180,180,0.5);
+	position:relative;
+}
+
+.button{
+	cursor:pointer;	
+}
+
+.more{
+	color: white;
+	position:absolute;;
+	width:150px;
+	padding:10px 10px 10px 10px;
+	background-color:#81D8D0;
+	text-align:center;
+	border-radius:1px;
+	top:-20px;
+	right:0px;
+	@include transition( background-color 100ms ease-in);
+
+	&:hover{
+		background-color:rgb(48,49,52);
+		@include transition( background-color 100ms ease-in);
+	}
+}
+
+
+#editorspick{
+}
+.featured.ul{
+	background-color:gray;
+	width:70%;
+	margin:0px 15% 0px 15%;
+	height:400px;
+	text-align:center;
+	background-color:white;
+}
+.featured#story{
+	width:33%;
+	height:100%;
+	display:inline-block;
+	vertical-align:top;
+	text-align:center;
+	border-right:1px solid rgb(240,240,240);
+
+
+
+	#content{
+		font-size:1.7em;
+		line-height:1em;
+		width:80%;
+		height:200px;
+		text-align:left;
+		padding:0px;
+		margin: 70px 10% 20px 10%;
+		vertical-align:top;
+		clear:both;
+		font-family: 'Josefin Slab';
+
+	}
+
+}
 
