@@ -12,7 +12,7 @@ $(function () {
 	app.Views.Map = Backbone.View.extend({
 
 		// Bind to a div for visualizations
-		el: "#dynamic-content",
+		// el: "#dynamic-content",
 
 		// Delegated events 
 		events: {},
@@ -20,11 +20,17 @@ $(function () {
 		initialize: function () {
 
 			$(this.el).html('');
+			console.log((this));
 			$(this.el).html("<div id='map-vis'></div>");
 			this.issue = this.options.issue;
 			var that = this;
 
-			this.map = app.MyMap.init(8);
+			if (this.options.zoomLevel == undefined){
+				this.zoomLevel = 8;
+			} else {
+				this.zoomLevel = this.options.zoomLevel;
+			}
+			this.map = app.MyMap.init(this.zoomLevel);
 			 this.map.scrollWheelZoom.disable();
 			this.map.doubleClickZoom.enable();
 

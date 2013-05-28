@@ -23,12 +23,11 @@ $(function(){
 
 		// Listen to navbar, update content accordingly
 		events: {
-			'click .display' : 'displayStories',
 		},
 
 		initialize: function() {
 			this.render();
-			this.visual = new app.Views.List({"issue":this.options.issue});
+			this.visual = new app.Views.List({"issue":"test"});
 			this.displayStatistics();
 		},
 
@@ -187,7 +186,7 @@ $(function(){
 			$('.more').css({'display':'none'});
 			 $(this.el).children('#d').append("<div id='dynamic-content'></div>");
 
-			 this.visual = new app.Views.Map({"issue":this.options.issue, el:"#dynamic-content"});
+			 this.visual = new app.Views.Map({"issue":this.options.issue});
 		},
 
 		displayList: function(){

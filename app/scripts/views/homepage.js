@@ -15,21 +15,21 @@ $(function(){
 	// and visualize dynamically in map or list view depending on set controls
 	// sample usage :
 	// var view = new app.Views.StoryVisualization({issue : "bribery"});
-	app.Views.IssueView = Backbone.View.extend({
+	app.Views.HomeView = Backbone.View.extend({
 
 		el: "#content",
 
-		template: _.template( $('#issue-view-template').html() ),
+		template: _.template( $('#home-view-template').html() ),
 
 		// Listen to navbar, update content accordingly
 		events: {
-			'click .display' : 'displayStories',
 		},
 
 		initialize: function() {
 			this.render();
-			this.visual = new app.Views.List({"issue":this.options.issue});
+			this.visual = new app.Views.List({"issue":"test"});
 			this.displayStatistics();
+			new app.Views.Map({"issue":"test",el:"#homemap", "zoomLevel":10});
 		},
 
 		render: function(){
@@ -187,7 +187,7 @@ $(function(){
 			$('.more').css({'display':'none'});
 			 $(this.el).children('#d').append("<div id='dynamic-content'></div>");
 
-			 this.visual = new app.Views.Map({"issue":this.options.issue, el:"#dynamic-content"});
+			 this.visual = new app.Views.Map({"issue":this.options.issue});
 		},
 
 		displayList: function(){
