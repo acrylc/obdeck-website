@@ -8,7 +8,7 @@ app.MyMap.init = function( zoom, layer, centerLat , centerLon){
 	if (!centerLon)
 		centerLon = 35.500;
 	if (!layer) 
-		layer = 'kamicut.map-yrg8zocq';
+		layer = 'mayakreidieh.map-3pl67797';
 	if (!zoom)
 		zoom = 10;
 
