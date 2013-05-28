@@ -133,7 +133,7 @@ $(function () {
 					this._layers[i].addLayer(circle);
 
 				} else {
-					marker.circle.setStyle({radius: marker.circle.options.radius+0.3 });
+					marker.circle.setStyle({radius: marker.circle.options.radius+0.2 });
 					marker.refs.push(ref);
 				}
 			}

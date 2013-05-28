@@ -1,6 +1,6 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
-@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400,600);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 @import url(http://fonts.googleapis.com/css?family=Arvo);
@@ -12,7 +12,7 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 $red: #EB6A5D;
 $purple: #9b59b6;
 $background: rgb(240,240,240);
-$darkblue : rgb(50,68,80);
+$darkblue : rgb(40,58,70);
 
 
 
@@ -37,22 +37,25 @@ a{
 }
 
 #navbar{
-	font-family: 'Arvo', sans-serif;
+	font-family: sans-serif;
 	background-color: rgb(48,49,55);
 	background-color: rgb(40,58,70);
-	background-color: rgb(40,58,70);
+	background-color: rgb(50,68,80);
+		background-color: rgb(48,49,55);
+
 	box-shadow: 0px 0px 10px 1px rgba(150,150,150,0.5); 
 
 	margin:0px;
 	height:50px;
-	text-align:left;
+	text-align:right;
 
 	li.nav{
-		color:rgb(204,204,204);
+		color:rgb(174,174,174);
 		height:30px;
-		padding:15px 30px 15px 30px;
+		padding:15px 15px 15px 15px;
 		font-size:1em;
-		vertical-align:left;
+		vertical-align:right;
+		font-weight:400;
 
 		text-align:center;
 		&:hover{
@@ -184,11 +187,18 @@ li{
 	text-align:center;
 }
 .editorial#title{
-	clear:both;
 	padding:0px;
 	margin:0px;
 	font-size:3em;
 
+}
+.editorial.home#title{
+	height:80px;
+	position:relative;
+	#titlecontent{
+		position:absolute;
+		bottom:10px;
+	}
 }
 
 #stats-container{
