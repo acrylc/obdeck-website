@@ -41,13 +41,13 @@ a{
 	background-color: rgb(48,49,55);
 	background-color: rgb(40,58,70);
 	background-color: rgb(40,58,70);
-	box-shadow: 0px 0px 5px 1px gray; 
+	box-shadow: 0px 0px 10px 1px rgba(150,150,150,0.5); 
 
 	margin:0px;
 	height:50px;
 	text-align:left;
 
-	li{
+	li.nav{
 		color:rgb(204,204,204);
 		height:30px;
 		padding:15px 30px 15px 30px;
@@ -58,6 +58,50 @@ a{
 		&:hover{
 			color:rgb(254,254,254);
 		}
+	}
+	li.social{
+		float:right;
+		margin:10px;
+		font-size:1.5em;
+		width : 28px;
+		height:28px;
+		position:relative;
+		img{
+			position:absolute;
+			top:0px;
+			left:0px;
+			z-index:1;
+
+		}
+		#socialoverlay{
+			width:100%;
+			position:absolute;
+			height:100%;
+			top:0px;
+			border-radius:50%;
+			background-color:rgba(50,68,80,0.5);
+			border:4px rgb(50,68,80);
+			@include transition( background-color 150ms ease-in);
+			left:0px;
+			z-index:9999;
+			&:hover{
+				background-color:rgba(255,255,255,0.2);
+				@include transition( background-color 150ms ease-in);
+			}
+		}
+	}
+	li#translate{
+	color:rgb(204,204,204);
+		padding:15px 10px 15px 10px;
+		vertical-align:left;
+
+		text-align:center;
+		&:hover{
+			color:rgb(254,254,254);
+		}
+		float:right;
+		font-size:1.5em;
+
 	}
 }
 
