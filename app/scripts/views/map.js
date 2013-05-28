@@ -100,12 +100,12 @@ $(function () {
 					console.log("new one");
 
 					var markerOptions = {
-							radius: 25,
-							fillColor: "#ff7800",
-							color: "none",
-							weight: 1,
+							radius: 15,
+							fillColor: "#f66a79",
+							color: "#f6dad9",
+							weight:1,
 							opacity: 1,
-							fillOpacity: 0.1
+							fillOpacity: 0.85
 					};
 
 					var circle = L.circleMarker( new L.LatLng(story.toJSON().lat,story.toJSON().lon) , markerOptions);
@@ -133,7 +133,7 @@ $(function () {
 					this._layers[i].addLayer(circle);
 
 				} else {
-					marker.circle.setStyle({fillOpacity: marker.circle.options.fillOpacity+0.03 });
+					marker.circle.setStyle({radius: marker.circle.options.radius+0.3 });
 					marker.refs.push(ref);
 				}
 			}

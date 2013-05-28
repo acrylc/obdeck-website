@@ -2,6 +2,9 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import url(http://fonts.googleapis.com/css?family=Lato:400,900);
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400,600);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+
 
 
 @import 'sass-bootstrap/lib/bootstrap';
@@ -9,6 +12,8 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 $red: #EB6A5D;
 $purple: #9b59b6;
 $background: rgb(240,240,240);
+$darkblue : rgb(50,68,80);
+
 
 
 
@@ -32,21 +37,26 @@ a{
 }
 
 #navbar{
+	font-family: 'Arvo', sans-serif;
 	background-color: rgb(48,49,55);
+	background-color: rgb(40,58,70);
+	background-color: rgb(40,58,70);
+	box-shadow: 0px 0px 5px 1px gray; 
+
 	margin:0px;
 	height:50px;
-	text-align:center;
+	text-align:left;
 
 	li{
-		color:rgb(214,214,214);
+		color:rgb(204,204,204);
 		height:30px;
-		padding:10px;
-		font-size:1.3em;
-		vertical-align:center;
-		width:200px;
+		padding:15px 30px 15px 30px;
+		font-size:1em;
+		vertical-align:left;
+
 		text-align:center;
 		&:hover{
-			background-color: lighten( rgb(48,49,55), 10%);
+			color:rgb(254,254,254);
 		}
 	}
 }
@@ -460,9 +470,12 @@ display:block;
 		line-height:0.5em;
 		font-weight:900;
 		color:rgb(48,49,54);
+		color: rgb(50,68,80);
+
 	}
 	h2{
 		color:gray;
+		font-family: 'PT Sans', sans-serif;
 		font-size:1.3em;
 		font-weight:400;
 	}
@@ -507,7 +520,7 @@ display:block;
 	@include transition( background-color 100ms ease-in);
 
 	&:hover{
-		background-color:rgb(48,49,52);
+		background-color:$darkblue;
 		@include transition( background-color 100ms ease-in);
 	}
 }

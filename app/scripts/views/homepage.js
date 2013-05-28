@@ -29,7 +29,7 @@ $(function(){
 			this.render();
 			this.visual = new app.Views.List({"issue":"test"});
 			this.displayStatistics();
-			new app.Views.Map({"issue":"test",el:"#homemap", "zoomLevel":10});
+			new app.Views.Map({"issue":"test",el:"#homemap", "zoomLevel":5});
 		},
 
 		render: function(){
