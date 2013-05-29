@@ -103,6 +103,7 @@ $(function () {
 							radius: 15,
 							fillColor: "#f66a79",
 							color: "#f6dad9",
+							color:"none",
 							weight:1,
 							opacity: 1,
 							fillOpacity: 0.85
@@ -133,7 +134,7 @@ $(function () {
 					this._layers[i].addLayer(circle);
 
 				} else {
-					marker.circle.setStyle({radius: marker.circle.options.radius+0.2 });
+					marker.circle.setStyle({radius: marker.circle.options.radius+0.1 });
 					marker.refs.push(ref);
 				}
 			}

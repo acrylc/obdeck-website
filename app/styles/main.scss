@@ -10,6 +10,7 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import 'sass-bootstrap/lib/bootstrap';
 
 $red: #EB6A5D;
+$red: #f66a79;
 $purple: #9b59b6;
 $background: rgb(240,240,240);
 $darkblue : rgb(40,58,70);
@@ -42,6 +43,7 @@ a{
 	background-color: rgb(40,58,70);
 	background-color: rgb(50,68,80);
 		background-color: rgb(48,49,55);
+		background-color: darken($darkblue, 5%);
 
 	box-shadow: 0px 0px 10px 1px rgba(150,150,150,0.5); 
 
@@ -186,24 +188,16 @@ li{
 	margin:0px;
 	text-align:center;
 }
+.editorial.hero#issues{
+	background-image: url('/images/lb.jpg');
+}
 .editorial#title{
-	padding:0px;
-	margin:0px;
+	margin-top:20px;
 	font-size:3em;
 
 }
-.editorial.home#title{
-	height:80px;
-	position:relative;
-	#titlecontent{
-		position:absolute;
-		bottom:10px;
-	}
-}
 
 #stats-container{
-	position:absolute;
-	bottom:0px;
 
 }
 
@@ -277,7 +271,10 @@ li{
 	background-color:$background;
 	margin-left:auto;
 	margin-right: auto;
-	padding:20px;
+	padding:30px;
+	border-top: 7px solid rgb(190,190,190);
+	background-color:white;
+	padding:30px;
 
 	#description{
 		width:50%;
@@ -479,17 +476,23 @@ display:block;
 }
 
 #map-vis{
-	background-color: rgb(119,202,182);
+	background-color: rgb(158,197,192);
 	width:100%;
 	height:600px;
 }
 
 .issue{
-	width:220px;
-	height:220px;
+	width:150px;
+	height:150px;
 	margin:10px;
-	background-color:green;
 	display:inline-block;
+	font-size:5em;
+	color:white;
+	border-radius:2px;
+			background-color: #34495e;
+
+
+
 }
 #editorialissues{
 	margin-top:50px;
@@ -589,6 +592,8 @@ display:block;
 	height:400px;
 	text-align:center;
 	background-color:white;
+		color:white;
+background-color: desaturate($red,20%);
 }
 .featured#story{
 	width:33%;
