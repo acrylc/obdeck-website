@@ -37,10 +37,6 @@
             <li id='participate' class='nav button'>PARTICIPATE</li>
             <li id='about' class='nav button'>ABOUT</li>
             <li id='translate' class='nav button'>ع</li>
-<!--             <li id='twitter' class='social button'><img src='/images/icons/twitter.png'> <div id='socialoverlay'></div></li>
-            <li id='facebook' class='social button'><img src='/images/icons/facebook.png'><div id='socialoverlay'></div> </li>
-            <li id='google+' class='social button'><img src='/images/icons/Google+.png'><div id='socialoverlay'></div> </li> 
- -->            
             </ul>
         </nav>
 
@@ -48,10 +44,118 @@
         <div id='content'>
         </div>
 
-        <!-- </div> -->
-
 
         <!-- Templates -->
+
+
+        <script type='text/template' id='home-view-template'>
+
+            <nav id='internalnav'>
+                <p>Blalbalba</p>
+                <ul>
+                    <li id='up'></li>
+                    <li id='down'></li>
+                </ul>
+            </nav>
+
+            <div class='home hero' id='homemap'> 
+            </div>
+            <div class='editorial description'>
+                <div class='editorial home' id='title'> #<b>Lebelect<b style='text-decoration:line-through;'>13 </b> </b><b style='color:red;font-size:1.5em'>14</b></div>
+
+                <div id='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis orci sapien, scelerisque ut iaculis sed, blandit eget justo. Morbi porttitor diam non lacus fermentum ut ultrices eros lobortis. Aliquam erat volutpat. Etiam eu mauris sem. Curabitur id turpis lacus. Curabitur vel ullamcorper odio. Aliquam fermentum tortor quis mi scelerisque malesuada. Mauris sollicitudin nisi eu sapien facilisis iaculis. Aliquam vel nibh enim. Phasellus lacinia suscipit nibh quis varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis aliquet eros, a dignissim ligula lacinia sit amet. Donec pellentesque varius velit eu viverra. 
+                </div>
+                <div id='relatedtags'>
+                    <h2> Related Tags </h2>
+                    <ol id='tags'>
+                    </ol>
+
+                </div>
+
+
+
+                <div id='stats-container'>
+                    <div class='stats' id='talkingabout'> 
+                        <p class='statvalue' id='talkingaboutvalue'> 0 </p>
+                        <p class='statlabel'> Talking about this </p>
+                    </div>
+                    <div class='stats' id='numstories'>  
+                        <p class='statvalue' id='numstoriesvalue'> 0 </p>
+                        <p class='statlabel'> Stories about this </p>
+                    </div>
+                    <div class='stats' id='numstories'>  
+                        <p class='statvalue' id='numstoriesvalue'> 0 </p>
+                        <p class='statlabel'> Stories about this </p>
+                    </div>
+                    </div>
+            </div>
+
+            <div id='join' class='section'>
+                <div class='break'></div>
+                    <div class='inner'>
+                        <div class='head' style="text-align:center">
+                            <h1 >Join the conversation!</h1> 
+                        </div>  
+                    </div>
+                <div class='break'></div>
+            </div>
+
+        <div id='featured' class='section'>
+
+            <div class='head' >
+                <h1>Featured Stories</h1>
+                <h2 class='description'>The editors pick of interesting stories</h2>
+
+            </div>
+
+            <div class='featured ul'>
+                <div class='featured' id='story'>
+                    <div id='content'>A day to remember rezaaryafar with little mouchiii #harissa #lebanon #beirut #handsome ;) #beauty… 
+                    </div>
+                    <div id='author'>@RT3Lebanon</div>
+                </div>                
+                <div class='featured' id='story'>
+                    <div id='content'>RT @Galtweets: #Knowledge does cross all borders | Students from #Lebanon, #Iran, Pakistan learn about the human brain @ Hebrew U http://t.co/ID9K7HrKGu
+
+
+                    </div>
+                    <div id='author'>@ACRSME</div>
+
+                </div>                
+                <div class='featured' id='story'>
+                    <div id='content'>RT @FSACrimes: Syria kills militants at Lebanon border http://t.co/fn6tQPPp2i #RealSyria #Syrien
+                    </div>
+                    <div id='author'>@RT3Lebanon</div>
+                </div>
+            </div>
+
+            <div class='footer'></div>
+        </div>
+
+        <div id='chatter' class='section'>
+            <div class='head stories'>
+                <h1>Stories</h1>
+                <h2 class='description'>What people are saying</h2>
+                <div id='stories-control'>
+                        <div class='sort button' id='label'>View by:</div>
+                        <div class='sort button' id='trending'>Trending</div>
+                        <div class='sort button' id='recent'>Recent</div>
+                        <div class='filter button' id='none'>All</div>
+                        <div class='filter button' id='twtr'>Twitter</div>
+                        <div class='filter button' id='comp'>Completure</div>
+                        <div class='filter button' id='label'>Filter button by:</div>
+                </div>     
+            </div>    
+        </div>
+
+        <div id='dynamic-content'>
+        </div>
+
+        <div class='footer'>
+            <div class='more button' id='none'>5 more stories</div> </div>
+        </script>
+
+
         <script type='text/template' id='list-item-image-template'>
             <div class='listory' id='<%-id%>' >
                 <div id='listory-content'>
@@ -156,104 +260,6 @@
         </script>
 
 
-        <script type='text/template' id='home-view-template'>
-
-            <div class='home hero' id='homemap'> 
-            </div>
-            <div class='editorial description'>
-                <div class='editorial home' id='title'> #<b>Lebelect<b style='text-decoration:line-through;'>13 </b> </b><b style='color:red;font-size:1.5em'>14</b></div>
-
-                <div id='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis orci sapien, scelerisque ut iaculis sed, blandit eget justo. Morbi porttitor diam non lacus fermentum ut ultrices eros lobortis. Aliquam erat volutpat. Etiam eu mauris sem. Curabitur id turpis lacus. Curabitur vel ullamcorper odio. Aliquam fermentum tortor quis mi scelerisque malesuada. Mauris sollicitudin nisi eu sapien facilisis iaculis. Aliquam vel nibh enim. Phasellus lacinia suscipit nibh quis varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis aliquet eros, a dignissim ligula lacinia sit amet. Donec pellentesque varius velit eu viverra. 
-                </div>
-                <div id='relatedtags'>
-                    <h2> Related Tags </h2>
-                    <ol id='tags'>
-                    </ol>
-
-                </div>
-
-
-
-                <div id='stats-container'>
-                    <div class='stats' id='talkingabout'> 
-                        <p class='statvalue' id='talkingaboutvalue'> 0 </p>
-                        <p class='statlabel'> Talking about this </p>
-                    </div>
-                    <div class='stats' id='numstories'>  
-                        <p class='statvalue' id='numstoriesvalue'> 0 </p>
-                        <p class='statlabel'> Stories about this </p>
-                    </div>
-                    <div class='stats' id='numstories'>  
-                        <p class='statvalue' id='numstoriesvalue'> 0 </p>
-                        <p class='statlabel'> Stories about this </p>
-                    </div>
-                    </div>
-            </div>
-
-            <div id='join' class='section'>
-                <div class='break'></div>
-                    <div class='inner'>
-                        <div class='head' style="text-align:center">
-                            <h1 >Join the conversation!</h1> 
-                        </div>  
-                    </div>
-                <div class='break'></div>
-            </div>
-
-        <div id='editorspick' class='section'>
-            <div class='head'>
-                <h1>Featured Stories</h1>
-                <h2 class='description'>The editors pick of interesting stories</h2>
-
-            </div>
-
-            <div class='featured ul'>
-                <div class='featured' id='story'>
-                    <div id='content'>A day to remember rezaaryafar with little mouchiii #harissa #lebanon #beirut #handsome ;) #beauty… 
-                    </div>
-                    <div id='author'>@RT3Lebanon</div>
-                </div>                
-                <div class='featured' id='story'>
-                    <div id='content'>RT @Galtweets: #Knowledge does cross all borders | Students from #Lebanon, #Iran, Pakistan learn about the human brain @ Hebrew U http://t.co/ID9K7HrKGu
-
-
-                    </div>
-                    <div id='author'>@ACRSME</div>
-
-                </div>                
-                <div class='featured' id='story'>
-                    <div id='content'>RT @FSACrimes: Syria kills militants at Lebanon border http://t.co/fn6tQPPp2i #RealSyria #Syrien
-                    </div>
-                    <div id='author'>@RT3Lebanon</div>
-                </div>
-            </div>
-
-            <div class='footer'></div>
-        </div>
-
-        <div id='d' class='section'>
-
-            <div class='head stories'>
-                <h1>Stories</h1>
-                <h2 class='description'>What people are saying</h2>
-                <div id='stories-control'>
-                        <div class='sort button' id='label'>View by:</div>
-                        <div class='sort button' id='trending'>Trending</div>
-                        <div class='sort button' id='recent'>Recent</div>
-                        <div class='filter button' id='none'>All</div>
-                        <div class='filter button' id='twtr'>Twitter</div>
-                        <div class='filter button' id='comp'>Completure</div>
-                        <div class='filter button' id='label'>Filter button by:</div>
-                </div>     
-            </div>    
-        </div>
-
-        <div id='dynamic-content'>
-        </div>
-
-        <div class='footer'>
-            <div class='more button' id='none'>5 more stories</div> </div>
-        </script>
 
 
         <script type='text/template' id='issue-view-template'>

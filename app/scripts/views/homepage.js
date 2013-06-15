@@ -30,6 +30,29 @@ $(function(){
 			this.visual = new app.Views.List({"issue":"test"});
 			this.displayStatistics();
 			new app.Views.Map({"issue":"test",el:"#homemap", "zoomLevel":5});
+			this.internalSections = ["join", "featured", "chatter"];
+			this.currSection = 0;
+
+			var that = this;
+							$("#internalnav").children("p").html(that.internalSections[that.currSection]);
+
+			$('#internalnav ul li').on("click", function(){
+
+
+				if ( $(this).attr("id")=="up" ){
+					if (that.currSection!=0)
+						that.currSection = that.currSection-1;
+				}
+				if ( $(this).attr("id")=="down" ){
+					if (that.currSection!= (that.internalSections.length-1 ) )
+						that.currSection = that.currSection+1;
+				}
+
+				$('html,body').animate({
+				    scrollTop: $("#"+that.internalSections[that.currSection]).offset().top - 100
+				}, 'fast');
+				$("#internalnav").children("p").html(that.internalSections[that.currSection]);
+			});
 		},
 
 		render: function(){

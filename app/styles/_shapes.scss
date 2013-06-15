@@ -1,0 +1,67 @@
+@import "compass/css3/transform";
+
+
+
+// SIMPLE SHAPES
+@mixin _position($x:0px, $y:0px ){
+	position:absolute;
+	top:$y;
+	left:$x;
+}
+@function _length($x1, $y1, $x2, $y2){
+	$len : sqrt( ($x2 - $x1)*($x2 - $x1) + ($y2 - $y1)*($y2 - $y1) );
+	@return $len/1px  ;
+}
+
+@mixin lline($x1, $y1, $x2, $y2){
+	transform-origin: 0 0%;
+	height: 1px; /* Line width of 3 */
+	background: #000; /* Black fill */
+	width: _length($x1,$y1,$x2,$y2);
+	@include _position($x1,$y1);
+}
+
+@mixin circle($radius: 50px, $x:0px, $y:0px, $fill:#fff, $stroke:#fff){
+	height: $radius;
+	width: $radius;
+
+}
+
+@mixin triangleUp() {
+    border-color: transparent transparent rgb(200,200,210) transparent;
+    border-style: solid;
+    border-width: 0px 20px 30px 20px;
+    top:10px;
+    position:relative;
+    height: 0px;
+    width: 0px;
+    display:inline-block;
+    &:hover{
+    	@include transition( border-color 100ms ease-in);
+
+		border-color: transparent transparent darken(rgb(200,200,210),10%) transparent;
+
+    }
+}
+
+@mixin triangleDown() {
+    border-color: rgb(200,200,210) transparent transparent transparent;
+    border-style: solid;
+    border-width: 30px 20px 0px 20px;
+    top:10px;
+    position:relative;
+    height: 0px;
+    width: 0px;
+        display:inline-block;
+
+      &:hover{
+      	@include transition( border-color 100ms ease-in);
+
+		border-color:  darken(rgb(200,200,210),10%) transparent transparent transparent;
+
+    }
+}
+
+
+
+
