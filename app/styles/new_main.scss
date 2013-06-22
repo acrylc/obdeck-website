@@ -17,6 +17,7 @@ $red: #f66a79;
 $purple: #9b59b6;
 $background: rgb(240,240,240);
 $darkblue : rgba(40,58,70,1);
+$width : 950px;
 
 
 html{
@@ -38,8 +39,10 @@ a{
 }
 
 h2{
+	font-size:2.2em;
 	font-family: "Lato", sans-serif;
 	font-weight:700;
+	color: rgb(80,80,80);
 
 }
 
@@ -67,21 +70,13 @@ section{
 
 
 header{
-	width:70%;
-	margin:0 15% 0 15%;
+
 	z-index:9999 !important;
 	h1{
-		margin-top:100px;
-		font-size:2em;
-		margin:0px;	
-		padding:0px;
-		line-height:0.5em;
-		font-weight:900;
-		color:rgb(48,49,54);
-		color: rgb(50,68,80);
-		font-family: "Lato", sans-serif;
-		font-weight: 700;
-		font-stretch: 100;
+	font-size:2.2em;
+	font-family: "Lato", sans-serif;
+	font-weight:700;
+	color: rgb(80,80,80);
 	}
 	h2{
 		color:gray;
@@ -179,7 +174,51 @@ header{
 #keyplayers{
 	min-height:500px;
 	width:100%;
+	margin:50px 0px 50px 0px;
 
+	ul{
+		// background-color: darken(desaturate(rgb(250,200,170),70%),0%);
+		margin:0px;
+	}
+}
+
+.player{
+	width: ($width)/3-20px;
+	margin:20px;
+	height:  ($width)/3-20px;
+	border-radius: (($width)/3-20px)/2;
+	background-image: url('/images/tpb.jpg') no-repeat center;
+	width: 280px;
+	padding: 10px;
+	margin:0px;
+	display:inline-block;
+	vertical-align:top;
+	// border-bottom :1px solid rgb(200,200,200);
+	// border-right :1px solid rgb(200,200,200);
+	text-align:center;
+	img{
+		width:200px;
+		height:200px;
+		border-radius:100px;
+		background-color: rgb(210,210,210);
+		border: 1px solid rgb(200,200,200);
+		margin:15px 0px 15px 0px;
+
+	}
+}
+#ptitle{
+	font-family : "Lato", serif;
+	font-weight:700;
+	font-size:1.3em;
+	text-align:left;
+}
+#pdesc{
+	width:250px;
+	font-family:"Lora";
+	font-weight:300;
+	color:rgb(150,150,150);
+	line-height:1em;
+	text-align:left;
 }
 
 #displaycontrol{
