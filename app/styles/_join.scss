@@ -1,0 +1,74 @@
+@import "compass";
+
+
+$red: #EB6A5D;
+$red: #f66a79;
+$purple: #9b59b6;
+$background: rgb(240,240,240);
+$darkblue : rgba(40,58,70,1);
+
+
+
+
+#join{
+	margin:0px;
+	margin-top:50px;
+	padding: 100px 0px 100px 0px;
+	height:100px;
+	position:relative;
+	background-image: url('/images/fc.png');
+	background-attachment: fixed;
+	.inner{
+		z-index:9999;
+		position:absolute;
+		width: 700px;
+		margin-left: 50%;
+		left: -350px;
+		.label{
+			width:500px;
+			text-align: left;
+			background-color: rgba(00,0,0,0);
+			color: rgb(250,250,250);
+			font-size:3em;
+			font-weight:400;
+			text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+			display:inline-block;
+			clear:both;
+			#tag{
+				font-size:0.8em;
+				clear:both;
+				padding:10px 0px 10px 0px;
+			}
+			#main{
+				font-size: 1.2em;
+				clear:both;
+				padding:20px 0px 20px 0px;
+
+
+			}
+		}
+	}
+}
+.submittwt{
+	height:200px;
+	width:200px;
+	background-color: transparentize(darken($darkblue,10%),0.1);
+	border-radius:100px;
+	top:-50px;
+	right:0px;
+	position: absolute;
+	&:hover{
+		background-color: darken(#81D8D0,10%);
+	}
+}
+#join:before{
+	    content: "";  
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    background: desaturate(darken(saturate(transparentize($red, 0.1),0%),10%),30%);  
+    z-index:0;
+
+}

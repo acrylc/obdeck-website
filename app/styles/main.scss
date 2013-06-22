@@ -1,10 +1,11 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,900);
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400,600);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 @import url(http://fonts.googleapis.com/css?family=Arvo);
 @import "shapes";
+@import "compass";
 
 
 
@@ -31,7 +32,6 @@ body{
 	margin:0px;
 	font-family: 'Lato', Helvetica, sans-serif;
 	background-color: rgb(240,240,240);
-	margin-bottom:50px;
 }
 
 a{
@@ -124,6 +124,9 @@ a{
 			&:hover{
 			background-color:rgba(0,0,0,0);
 			}
+			#tag{
+				font-size:2em;
+			}
 		}
 		.display{
 			&:hover{
@@ -185,7 +188,6 @@ li{
 }
 
 .stats{
-	background-color:rgb(180,180,180);
 	border-radius: 3px;
 	vertical-align:bottom;
 	display:inline-block;
@@ -295,7 +297,7 @@ li{
 	margin-left:  auto;
 	margin-right: auto;
 	min-height:500px;
-
+	background-color: rgb(31,49,61);
 }
 
 
@@ -315,15 +317,17 @@ text-align:center;
 	width:100%;
 	margin: 0px ;
 	li{
-		height:300px;
-		width:250px;
+		height:280px;
+		width:280px;
 		margin:10px;
 
 	}
 
 }
 .listory{
-	border: 1px solid rgba(200,200,200,0.5);
+	// border: 1px solid rgba(200,200,200,0.5);
+	background-color: rgb(51,69,81);
+
 	&:hover{
 		border-bottom: 2px  $red solid;
 		}
@@ -345,10 +349,14 @@ text-align:center;
 
 #listory-content{
 
+	background-color: rgb(51,69,81);
+	// background-color: rgb(200,200,200);
 	overflow:hidden;
 	height:100%;
 	font-size:1.1em;
-	color:rgb(70,70,70);
+	color:rgb(210,210,210);
+	font-weight: 300;
+	font-size:1.2em;
 	#content-img{
 		position:reltive;
 		padding:0px;
@@ -406,7 +414,6 @@ display:block;
 		width:30px;
 		height:30px;
 		vertical-align:bottom;
-		border: 1px solid rgb(230,230,225);
 		border-radius:15px;
 		display:inline-block;
 		background-color:white;
@@ -526,6 +533,7 @@ display:block;
 .head{
 	width:70%;
 	margin:0 15% 0 15%;
+	z-index:9999 !important;
 	h1{
 		margin-top:100px;
 		font-size:2em;
@@ -546,6 +554,10 @@ display:block;
 }
 
 .section{
+	margin: 100px 0px 50px 0px;
+	width:100%;
+}
+section{
 	margin: 100px 0px 50px 0px;
 	width:100%;
 }
@@ -571,6 +583,68 @@ display:block;
 	cursor:pointer;	
 }
 
+#join{
+	margin:0px;
+	margin-top:50px;
+	padding: 100px 0px 100px 0px;
+	height:100px;
+	position:relative;
+	background-image: url('/images/fc.png');
+	background-attachment: fixed;
+	.inner{
+		z-index:9999;
+		position:absolute;
+		width: 700px;
+		margin-left: 50%;
+		left: -350px;
+		.label{
+			width:500px;
+			text-align: left;
+			background-color: rgba(00,0,0,0);
+			color: rgb(250,250,250);
+			font-size:3em;
+			font-weight:400;
+			text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+			display:inline-block;
+			clear:both;
+			#tag{
+				font-size:0.8em;
+				clear:both;
+				padding:10px 0px 10px 0px;
+			}
+			#main{
+				font-size: 1.2em;
+				clear:both;
+				padding:20px 0px 20px 0px;
+
+
+			}
+		}
+	}
+}
+.submittwt{
+	height:200px;
+	width:200px;
+	background-color: transparentize(darken($darkblue,10%),0.1);
+	border-radius:100px;
+	top:-50px;
+	right:0px;
+	position: absolute;
+	&:hover{
+		background-color: darken(#81D8D0,10%);
+	}
+}
+#join:before{
+	    content: "";  
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    background: desaturate(darken(saturate(transparentize($red, 0.1),0%),10%),30%);  
+    z-index:0;
+
+}
 .more{
 	color: white;
 	position:absolute;;

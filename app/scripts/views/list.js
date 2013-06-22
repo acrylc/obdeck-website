@@ -383,13 +383,13 @@ $(function () {
 
         template: _.template($('#list-item-template').html()),
         imagetemplate: _.template($('#list-item-image-template').html()),
-        previewtemplate: _.template($('#story-preview-template').html()),
-        previewimagetemplate: _.template($('#story-image-preview-template').html()),
+        // previewtemplate: _.template($('#story-preview-template').html()),
+        // previewimagetemplate: _.template($('#story-image-preview-template').html()),
 
         // The DOM events specific to an item.
         // decide on these later
         events: {
-             "click .listory"   : "stuff",
+             // "click .listory"   : "stuff",
         },
 
         // The ListElement listens for changes to its model, re-rendering.

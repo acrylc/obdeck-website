@@ -34,8 +34,7 @@ $(function(){
 			this.currSection = 0;
 
 			var that = this;
-							$("#internalnav").children("p").html(that.internalSections[that.currSection]);
-
+			$("#internalnav").children("p").html(that.internalSections[that.currSection]);
 			$('#internalnav ul li').on("click", function(){
 
 
