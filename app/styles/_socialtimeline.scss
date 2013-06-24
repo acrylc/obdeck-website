@@ -1,0 +1,70 @@
+
+$vth: 500px;
+
+#socialtimeline{
+	padding: 50px 0px 100px 0px;
+	min-height:$vth+200px;
+	position:relative;
+	background-image: url("/images/tg.png");
+		background-color: rgba(0,0,0,0.3);
+
+
+}
+
+#backcolor{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:1;
+	// background-color : transparentize(rgb(30,100,100),0.2);
+}
+#vtimeline{
+	position:absolute;
+	height:$vth;
+	top:200px;
+	left:150px;
+	width:50px;
+}
+
+.line{
+	position:absolute;
+	height:100%;
+	width:5px;
+	background-color:rgba(200,200,200,0.8);
+	border-radius: 4px;
+	z-index:1;
+	left: 9px;
+}
+
+.timestamp{
+	width:500px;
+	height:50px;
+	position:absolute;
+	left:0px;
+	top:50px;
+	z-index:9999;
+	clear:both;
+
+}
+
+.tcircle{
+	width:10px;
+	height:10px;
+	border-radius:10px;
+	background-color:$darkblue;
+	position:absolute;
+	border: 5px solid transparentize(lighten($darkblue,30%),0.5);
+	left:0px;
+	top:0px;
+	&:hover{
+	}
+}
+
+.tlabel{
+	position: absolute;
+	left: 30px;
+	top:0px;
+	font-weight:300;
+}
