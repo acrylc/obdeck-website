@@ -17,7 +17,7 @@ $(function () {
     // 	});
     app.Views.List = Backbone.View.extend({
 
-        el: "#dynamic-content",
+        el: ".tstories",
 
         template: _.template($('#list-view-template').html()),
 
@@ -60,7 +60,7 @@ $(function () {
             this.collection.bind('remove', this.remove);
             this.collection.bind('reset', this.reset);
 
-            this.fetchStories(20);
+            this.fetchStories(4);
 
 
             var that = this;
@@ -138,7 +138,7 @@ $(function () {
             this.numSnapshotsFetched = 0;
             this._storiesCache=[];
             if (n === undefined || typeof (n) != "number")
-                n = 20;
+                n = 4;
 
             var l = this.collection.length;
             var count = 0;
@@ -175,7 +175,7 @@ $(function () {
         _fetchStoriesByTrending: function (num) {
 
             if (num === undefined || typeof (num) != "number")
-                num = 20;
+                num = 4;
 
             // Get ref to top 50 stories
             var ref = new Firebase('https://lebelec.firebaseio.com/hashtags/' + this.issue + '/trending');
@@ -245,7 +245,7 @@ $(function () {
 	                                    that.numStoriesFetched = that.numStoriesFetched + that._storiesCache.length;
 	                                    that._storiesCache = [];
                             		if (that.numStoriesToFetch > 1 && that._filter!="none" && that.numStoriesFetched<num){
-                            			that.fetchStories(20);
+                            			that.fetchStories(4);
                             		} else {
                             			that.numStoriesFetched = 0;
                             		}                
@@ -261,7 +261,7 @@ $(function () {
         // Get,s the next 'num' stories for the given issue
         _fetchStoriesByRecent: function (num) {
             if (num === undefined || typeof (num) != "number")
-                num = 20;
+                num = 4;
 
             var ref = new Firebase('https://lebelec.firebaseio.com/hashtags/' + this.issue + '/recent');
             var that = this;
