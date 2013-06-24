@@ -21,25 +21,24 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 // ********************* Navbar description *****************
 #navbar{
-	font-family: sans-serif;
-	background-color: transparentize( saturate(darken($darkblue, 1%),10%), 0.05);
-	// background-color: rgb(20,25,35);
-	box-shadow: 0px 0px 10px 1px rgba(150,150,150,0.5); 
-	height:50px;
-	text-align:right;
 	position:fixed;
 	top:0px;
-	width:100%;
 	z-index:9999;
+	width:100%; 
+	height:50px;
+	background-color: transparentize( saturate(darken($darkblue, 1%),10%), 0.05);
+	box-shadow: 0px 0px 10px 1px rgba(150,150,150,0.5);
+	text-align:right;
+	font-family: sans-serif;
 
 	li.nav{
-		color:rgb(174,174,174);
-		height:30px;
 		padding:15px 15px 15px 15px;
-		font-size:1em;
+		height:30px;
+		color:rgb(174,174,174);
 		vertical-align:right;
-		font-weight:400;
 		text-align:center;
+		font-weight:400;
+		font-size:1em;
 		&:hover{
 			color:rgb(254,254,254);
 		}
@@ -52,36 +51,36 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 // ********************* Overview *****************
 
 #description{
-	width:600px;
 	display:inline-block;
-	font-family: "Junge", serif;
-	font-weight:300;
+	width:600px;
 	color:rgb(80,80,80);
 	text-align:justify;
+	font-weight:300;
+	font-family: "Junge", serif;
 }
 
 
 #relatedtags{
-	width:300px;
+	position:relative;
+	top:0px;
 	display:inline-block;
 	float:right;
+	width:300px;
 	height:400px;
 	vertical-align:top;
-	top:0px;
-	position:relative;
 	h2{
+		padding:5px 0px 5px 5%;
 		width:95%;
 		background-color: $red;
 		color:white;
 		font-size:1.5em;
-		padding:5px 0px 5px 5%;
 	}
 
 	ol{
-		li{ 
-			width:100%;
-			padding:5px 0px 5px 0px;
+		li{
 			display:block;
+			padding:5px 0px 5px 0px; 
+			width:100%;
 			color:rgb(100,100,100);
 			&:hover{
 					background-color: #81D8D0;
@@ -89,11 +88,11 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 		}
 	}
 	.tag{
-		vertical-align:center;
+		display:inline-block;
 		width:100%;
 		height:9%;
-		display:inline-block;
 		background-color:green;
+		vertical-align:center;
 		p{
 			padding-left:120px;
 		}
@@ -106,63 +105,63 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 // ********************* Key players
 #keyplayers{
+	margin:50px 0px 50px 0px;
 	min-height:500px;
 	width:100%;
-	margin:50px 0px 50px 0px;
 
 	ul{
-		// background-color: darken(desaturate(rgb(250,200,170),70%),0%);
 		margin:0px;
+		// background-color: darken(desaturate(rgb(250,200,170),70%),0%);
 	}
 }
 
 .player{
-	width: ($width)/3-20px;
+	display:inline-block;
 	margin:20px;
+	margin:0px;
+	padding: 10px;
+	width: ($width)/3-20px;
+	width: 280px;
 	height:  ($width)/3-20px;
+	// border-right :1px solid rgb(200,200,200);
+	// border-bottom :1px solid rgb(200,200,200);
 	border-radius: (($width)/3-20px)/2;
 	background-image: url('/images/tpb.jpg') no-repeat center;
-	width: 280px;
-	padding: 10px;
-	margin:0px;
-	display:inline-block;
 	vertical-align:top;
-	// border-bottom :1px solid rgb(200,200,200);
-	// border-right :1px solid rgb(200,200,200);
 	text-align:center;
 	img{
-		width:200px;
-		height:200px;
+		margin:15px 0px 15px 0px;
+		width:210px;
+		height:210px;
+		border: 1px solid rgb(200,200,200);
 		border-radius:100px;
 		background-color: rgb(210,210,210);
-		border: 1px solid rgb(200,200,200);
-		margin:15px 0px 15px 0px;
 
 	}
 }
 #ptitle{
-	font-family : "Lato", serif;
+	text-align:left;
 	font-weight:700;
 	font-size:1.3em;
-	text-align:left;
+	font-family : "Lato", serif;
 }
 #pdesc{
 	width:250px;
-	font-family:"Junge";
-	font-weight:300;
 	color:rgb(150,150,150);
-	line-height:1em;
 	text-align:left;
+	font-weight:300;
+	font-family:"Junge";
+	line-height:1em;
 }
 
 
 
 
 #dynamic-content{
-	width:100%;
 	margin: 0px 0px 50px 0px;
 	min-height:500px;
-	// background-color: rgb(31,49,61);
+	width:100%;
+	// background-color: rgb(31,49,61)
 }
 
 
@@ -172,58 +171,49 @@ $story-m: 25px;
 $ul-width: ($story-width + 2*$story-p + 2*$story-m)*3;
 
 ul#stories{
-width:100%;
-display:inline-block;
-text-align:center;
-
+	display:inline-block;
 	margin: 0px;
 	padding:0px;
 	width:100%;
-	li{
-		height:250px;
-		width:250px;
-		margin:10px;
-
-	}
-
-}
-.listory{
-	// border: 1px solid rgba(200,200,200,0.5);
-	// background-color: rgb(51,69,81);
-
-	&:hover{
-		border-bottom: 2px  $red solid;
-		}
-
 	text-align:left;
+	li{
+		margin:10px;
+		width:230px;
+		height:230px;
+	}
+}
+
+.listory{
+	position:relative;
+	display:inline-block;
 	margin:5px;
 	padding: 0px;
 	width:100%;
-
 	height:100%;
-	background-color:white;
-	display:inline-block;
-	vertical-align:top;
-	border-radius: 3px;
-	position:relative;
-	border-bottom: 2px solid rgb(180,180,180);
 	border-right: 2px solid rgb(180,180,180);
-
+	border-bottom: 2px solid rgb(180,180,180);
+	border-radius: 3px;
+	background-color:white;
+	vertical-align:top;
+	text-align:left;
+	&:hover{
+		border-bottom: 2px  $red solid;
+		}
 }
 
 
 #listory-content{
 
+	overflow:hidden;
+	height:100%;
 	background-color: rgb(51,69,81);
 	background-color: rgb(210,215,220);
 	background-color:white;
-	overflow:hidden;
-	height:100%;
-	font-size:1.1em;
 	color:rgb(210,210,210);
 	color: rgb(50,50,50);
 	font-weight: 300;
-	font-size:1.2em;
+	font-size:1em;
+
 	#content-img{
 		position:reltive;
 		padding:0px;
@@ -231,82 +221,76 @@ text-align:center;
 		height: 450px;
 	}
 	#text{
-		padding: 20px 20px 0px 20px;
+		padding: 5px 20px 0px 20px;
 	}
 	img{
-	width:100%;
-	height:auto;
-	overflow: hidden;
-	}
-	#text2{
+		overflow: hidden;
 		width:100%;
-		background-color:red;
-		position:absolute;
-		float:bottom;
+		height:auto;
 	}
 }
 
 .listory-meta{
 	position:absolute;
-	padding: 10px;
-	margin:10px;
 	bottom:0px;
 	float:bottom;
+	margin:10px;
+	padding: 10px;
 	vertical-align:bottom;
 }
 
 
 #popup-content-image{
 display:block;
+	overflow:hidden;
 	width:300px;
 	height:350px;
-		img{
-			margin:10px 0px 0px 0px;
-			max-width:100%;
-			max-height:100%;
-			width:300px;
-			height:auto;
-			display:inline-block;
-		}
-	overflow:hidden;
+	img{
+		display:inline-block;
+		margin:10px 0px 0px 0px;
+		max-width:100%;
+		max-height:100%;
+		width:300px;
+		height:auto;
+	}
 }
 
-	#user-image{
-		width:30px;
-		height:30px;
-		vertical-align:bottom;
-		border-radius:15px;
-		display:inline-block;
-		background-color:white;
-	}
-	#user{
-		font-size:0.7em;
-		vertical-align:bottom;
-		a{	color:black;	}
-		padding-left:5px;
-		margin:0px;
-	}
-	#time{
-		font-size:0.7em;
-		color:gray;
-		vertical-align:top;
-		padding-left:5px;
-		margin:0px;
-	}
+#user-image{
+	display:inline-block;
+	width:30px;
+	height:30px;
+	border-radius:15px;
+	background-color:white;
+	vertical-align:bottom;
+}
+#user{
+	margin:0px;
+	padding-left:5px;
+	vertical-align:bottom;
+	font-size:0.7em;
+	a{	color:black;	}
+}
+#time{
+	margin:0px;
+	padding-left:5px;
+	color:gray;
+	vertical-align:top;
+	font-size:0.7em;
+}
 
 .storypreview{
+	display:none;
 	margin: 0px;
+	margin-top:10px;
 	width: 100%;
 	height: 500px;
 	background-color: $red;
-	margin-top:10px;
 	box-shadow: 0px 0px 1px 1px rgba(150,150,150,0.3);
-	display:none;
 	#img, #previewtext{
+		display:inline-block;
+		margin:50px;
 		width:400px;
 		height:400px;
-		margin:50px;
-		display:inline-block;
 		vertical-align:top;
 		text-align:left;
 
@@ -318,43 +302,42 @@ display:block;
 }
 
 #map-vis{
-	background-color: rgb(158,197,192);
 	width:100%;
 	height:600px;
+	background-color: rgb(158,197,192);
 }
 
 .issue{
+	display:inline-block;
+	margin:10px;
 	width:150px;
 	height:150px;
-	margin:10px;
-	display:inline-block;
-	font-size:5em;
-	color:white;
 	border-radius:2px;
 	background-color: #34495e;
+	color:white;
+	font-size:5em;
 
 
 
 }
 
 .more{
-	color: white;
-	position:absolute;;
-	width:150px;
-	padding:10px 10px 10px 10px;
-	background-color:#81D8D0;
-	text-align:center;
-	border-radius:1px;
+	@include transition( background-color 100ms ease-in);
+	position:absolute;
 	top:-20px;
 	right:0px;
-	@include transition( background-color 100ms ease-in);
+	padding:10px 10px 10px 10px;
+	width:150px;
+	border-radius:1px;
+	background-color:#81D8D0;
+	color: white;
+	text-align:center;
 
 	&:hover{
-		background-color:$darkblue;
 		@include transition( background-color 100ms ease-in);
-	}
+		background-color:$darkblue;
+	};
 }
-
 
 
 
