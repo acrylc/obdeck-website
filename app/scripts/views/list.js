@@ -17,7 +17,7 @@ $(function () {
     // 	});
     app.Views.List = Backbone.View.extend({
 
-        el: ".tstories",
+        el: "#ts1.tstories",
 
         template: _.template($('#list-view-template').html()),
 
@@ -60,7 +60,7 @@ $(function () {
             this.collection.bind('remove', this.remove);
             this.collection.bind('reset', this.reset);
 
-            this.fetchStories(4);
+            this.fetchStories(20);
 
 
             var that = this;
@@ -105,6 +105,16 @@ $(function () {
 
         // add individual story 
         add: function (story) {
+
+            var j = this.collection.indexOf(story);
+            console.log(j);
+            if (j>0 && (j%4)==0){
+                            console.log("adding " +this.collection.indexOf(story));
+
+                this.el = "#ts"+ Math.floor(((j)/4)+1) +".tstories";
+            $(this.el).html((this.template()));
+            }
+            console.log(this.el);
             that = this;
             i = "s"+(this.collection.indexOf(story)+1);
             var view = new app.Views.ListItem({
@@ -116,7 +126,7 @@ $(function () {
             this._storyViews.push(view);
 
             if (this._rendered) {
-                $('#stories').append(view.render().el);
+                $(this.el).children('#stories').append(view.render().el);
             }
         },
 
@@ -138,7 +148,7 @@ $(function () {
             this.numSnapshotsFetched = 0;
             this._storiesCache=[];
             if (n === undefined || typeof (n) != "number")
-                n = 4;
+                n = 20;
 
             var l = this.collection.length;
             var count = 0;
@@ -175,7 +185,7 @@ $(function () {
         _fetchStoriesByTrending: function (num) {
 
             if (num === undefined || typeof (num) != "number")
-                num = 4;
+                num = 20;
 
             // Get ref to top 50 stories
             var ref = new Firebase('https://lebelec.firebaseio.com/hashtags/' + this.issue + '/trending');
@@ -245,7 +255,7 @@ $(function () {
 	                                    that.numStoriesFetched = that.numStoriesFetched + that._storiesCache.length;
 	                                    that._storiesCache = [];
                             		if (that.numStoriesToFetch > 1 && that._filter!="none" && that.numStoriesFetched<num){
-                            			that.fetchStories(4);
+                            			that.fetchStories(20);
                             		} else {
                             			that.numStoriesFetched = 0;
                             		}                
@@ -261,7 +271,7 @@ $(function () {
         // Get,s the next 'num' stories for the given issue
         _fetchStoriesByRecent: function (num) {
             if (num === undefined || typeof (num) != "number")
-                num = 4;
+                num = 20;
 
             var ref = new Firebase('https://lebelec.firebaseio.com/hashtags/' + this.issue + '/recent');
             var that = this;
@@ -398,76 +408,8 @@ $(function () {
             this.listenTo(this.model, 'destroy', this.remove);
             this.render();
             that = this;
-            // $(this.el).on('click', function(t){
-            //     console.log('clicked');
-            //      var index = Number((this.id).substr(1));
-            //      console.log(index);
-            //      if (index!=undefined){
-            //         // if mod 4 or is last/part of last row
-            //         if(index%4==0 ){
-            //             idToAppend = '#'+this.id;
-            //         } else {
-            //             k = index+4 - (index%4);
-            //             idToAppend = '#s'+k;
-            //         }
-            //         console.log(idToAppend);
-            //         if ($('.storypreview').length == 0){
-            //             //adding first one
-
-            //             $(idToAppend).after(that.previewtemplate(stor.toJSON()));
-
-            //             $('.storypreview').slideDown('slow');
-            //         } else {
-            //         $('.storypreview').slideUp({duration: 'fast', complete:function() {
-            //             $('.storypreview').remove();
-            //             $(idToAppend).after(that.previewtemplate(stor.toJSON()));
-            //             $('.storypreview').slideDown( 'slow');
-            //         }
-            //         });
-            //         }
-            //     }
-            // });    
          },
 
-         stuff: function(){
-            var that = this;
-                console.log('clicked');
-                 var index = Number((this.id).substr(1));
-                 console.log(index);
-                 if (index!=undefined){
-                    // if mod 4 or is last/part of last row
-                    if(index%4==0 ){
-                        idToAppend = '#'+this.id;
-                    } else {
-                        k = index+4 - (index%4);
-                        idToAppend = '#s'+k;
-                    }
-                    console.log(idToAppend);
-                    if ($('.storypreview').length == 0){
-                        //adding first one
-
-                        if (that.model.toJSON().media == "" || that.model.toJSON().media == undefined ){
-                            $(idToAppend).after(that.previewtemplate(that.model.toJSON()));
-                        } else {
-                            $(idToAppend).after(that.previewimagetemplate(that.model.toJSON()));
-                        }
-                        $('.storypreview').slideDown('slow');
-
-                    } else {
-                    $('.storypreview').slideUp({duration: 'fast', complete:function() {
-                        $('.storypreview').remove();
-                        if (that.model.toJSON().media == "" || that.model.toJSON().media == undefined ){
-                            $(idToAppend).after(that.previewtemplate(that.model.toJSON()));
-                        } else {
-                            $(idToAppend).after(that.previewimagetemplate(that.model.toJSON()));
-                        }
-                        $('.storypreview').slideDown( 'slow');
-                    }
-                    });
-                    }
-                }
-
-         },
 
         // Re-render the titles of the todo item.
         render: function () {

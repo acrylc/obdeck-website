@@ -1,5 +1,5 @@
 
-$vth: 500px;
+$vth: 1600px;
 
 #socialtimeline{
 	padding: 50px 0px 100px 0px;
@@ -61,10 +61,16 @@ $vth: 500px;
 	clear:both;
 }
 #t2{
-	top:50px+260px;
+	top:50px+280px;
 }
-.timestamp #t3{
-	top:50px+2*320px;
+#t3{
+	top:2*(50px+280px);
+}
+#t4{
+	top:3*(50px+280px);
+}
+#t5{
+	top:4*(50px+280px);
 }
 
 .tcircle{
