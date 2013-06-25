@@ -14,7 +14,11 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
   <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
+          <link rel="stylesheet" href="timeline/css/timeline.css" />
+
   <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
   <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
 
@@ -41,6 +45,8 @@
         </nav>
 
 
+    <script type="text/javascript" src="../timeline/js/storyjs-embed.js"></script>
+
         <div id='content'>
         </div>
 
@@ -51,9 +57,13 @@
         <!-- Full cover page template, consists of map, editorial, chatter and call for action -->
         <script type='text/template' id='home-view-template'>
 
-        <section id='eventtimeline'>
-        <iframe src='http://embed.verite.co/timeline/?source=0AvsGYBn6aGTpdElVVG5iTm9MVGoxNTFTZmE2UXdvWlE&font=Bevan-PotanoSans&maptype=toner&lang=en&height=650' width='100%' height='650' frameborder='0'></iframe>
-        </section>
+
+
+
+        <!-- END TimelineJS -->
+
+            <div id="my-timeline"></div>
+
             <section id='overview'>
                 <div class='inner'>
 

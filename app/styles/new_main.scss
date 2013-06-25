@@ -5,7 +5,6 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 @import url(http://fonts.googleapis.com/css?family=Arvo);
 @import url(http://fonts.googleapis.com/css?family=Junge:300,400);
-@import url(http://fonts.googleapis.com/css?family=Cuplum:300,400,700);
 @import url(http://fonts.googleapis.com/css?family=Oswald:300);
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300);
 
@@ -18,6 +17,9 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import "socialtimeline";
 
 
+#my-timeline{
+	margin-top:100px !important;
+}
 
 // ********************* Navbar description *****************
 #navbar{

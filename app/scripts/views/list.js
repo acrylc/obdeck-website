@@ -107,14 +107,14 @@ $(function () {
         add: function (story) {
 
             var j = this.collection.indexOf(story);
-            console.log(j);
+            //console.log(j);
             if (j>0 && (j%4)==0){
-                            console.log("adding " +this.collection.indexOf(story));
+                            //console.log("adding " +this.collection.indexOf(story));
 
                 this.el = "#ts"+ Math.floor(((j)/4)+1) +".tstories";
             $(this.el).html((this.template()));
             }
-            console.log(this.el);
+            //console.log(this.el);
             that = this;
             i = "s"+(this.collection.indexOf(story)+1);
             var view = new app.Views.ListItem({
