@@ -332,9 +332,12 @@ h2{
 
 .container h3{
 	font-family:"Lato", Helvetica !important;
-	font-weight:400!important;
+	font-weight:800!important;
 	font-size:1.2em;
-	color:rgb(90,90,90);
+	color:rgb(51,51,51)!important;
+	text-transform:uppercase
+
+
 }
 
 .dot{
