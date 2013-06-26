@@ -288,8 +288,12 @@
 
 .vco-container.vco-main, .timenav-interval-background{
 	background-color: rgb(250,250,250) !important;
+	background-color: rgba(250,250,250,0.3) !important;
 }
+#storyjs-timeline{
+		background-color: rgba(250,250,250,0.3) !important;
 
+}
 .vco-slider{
 	box-shadow: none !important;
 }
@@ -312,6 +316,8 @@
 }
 h2{
 	font-family: "Lato", Helvetica !important;
+	font-weight:800;
+	font-size:3em !important;
 }
 
 .timenav-background{

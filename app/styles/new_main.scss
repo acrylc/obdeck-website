@@ -18,8 +18,20 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 
 #my-timeline{
-	padding-top:180px !important;
+	padding-top:150px !important;
 	background-color: rgb(239, 239, 237) !important;
+	background-image: url("/images/hala.jpg");
+		background-attachment: fixed;
+		padding-bottom:0px !important;
+
+	&:before{
+		content: '';
+		width:100%;
+		position:fixed;
+		top:0px;
+		left:0px;
+		// background-color: transparentize($red,0.2);
+	}
 }
 
 // ********************* Navbar description *****************
