@@ -314,11 +314,13 @@
 	font-family: "Lato", Helvetica !important;
 	font-weight:300 !important;
 }
-h2{
+.container h2{
 	font-family: "Lato", Helvetica !important;
-	font-weight:800;
-	font-size:3em !important;
+	font-weight:300 !important;
+	font-size:2.1em !important;
 	text-align:center;
+		text-transform:uppercase
+
 }
 
 .timenav-background{
