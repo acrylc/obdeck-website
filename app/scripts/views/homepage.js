@@ -26,32 +26,47 @@ $(function(){
 		},
 
 		initialize: function() {
+			console.log(' in initalize ');
 			this.render();
 			this.visual = new app.Views.List({"issue":"test"});
-			this.displayStatistics();
-			new app.Views.Map({"issue":"test",el:"#homemap", "zoomLevel":5});
-			this.internalSections = ["join", "featured", "chatter"];
-			this.currSection = 0;
+			console.log("in main");
+			$('#my-timeline').blurjs({
+			source: '#my-timeline',
+			radius: 12,
+			overlay: 'rgba(255,255,255,0.4)'
+			});
+			$('#navbar').show();
+			this.navIsFixed = false;
 
 			var that = this;
-			$("#internalnav").children("p").html(that.internalSections[that.currSection]);
-			$('#internalnav ul li').on("click", function(){
-
-
-				if ( $(this).attr("id")=="up" ){
-					if (that.currSection!=0)
-						that.currSection = that.currSection-1;
-				}
-				if ( $(this).attr("id")=="down" ){
-					if (that.currSection!= (that.internalSections.length-1 ) )
-						that.currSection = that.currSection+1;
-				}
-
-				$('html,body').animate({
-				    scrollTop: $("#"+that.internalSections[that.currSection]).offset().top - 100
-				}, 'fast');
-				$("#internalnav").children("p").html(that.internalSections[that.currSection]);
+			createStoryJS({
+				type:       'timeline',
+				width:      '100%',
+				height:     '550',
+				source:     'https://docs.google.com/spreadsheet/pub?key=0AvsGYBn6aGTpdFlVWFB6S2JmczBON3gtM1J2SHhpVlE&output=html',
+				embed_id:   'my-timeline',
+				css: 'timeline.css'
 			});
+
+			 $(window).scroll(function(){
+			// get the height of #wrap
+			var y = $(window).scrollTop();
+				if( y >= 680 && that.navIsFixed==false ){
+					that.navIsFixed= true;
+					$('#navbar').hide()
+					$('#navbar').addClass('floatt');
+					$('#navbar').slideDown('fast');
+				}
+				if( y < 680 && that.navIsFixed==true ){
+					that.navIsFixed=false;
+					$('#navbar').slideUp('fast', function(){
+						$('#navbar').removeClass('floatt');
+						$('#navbar').css('display','block');
+					});
+				}
+
+			});
+
 		},
 
 		render: function(){

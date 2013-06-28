@@ -2,6 +2,7 @@
 
 $(function(){
 	// Global event
+	console.log('in main)');
 	app.vent = _.extend({}, Backbone.Events);
 
 	var a = new app.Views.AppView();
@@ -12,6 +13,8 @@ $(function(){
 
 	a.navigateHome();
 
-	
 
 });
+
+
+

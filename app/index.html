@@ -11,6 +11,9 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="styles/new_main.css">
+                <link rel="stylesheet" href="components/jquery.justifiedgallery.css" type="text/css" media="all" />
+
+
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
@@ -34,7 +37,7 @@
     <body>
        
 
-        <nav id='navbar'>
+        <nav id='navbar' class='fixed'>
             <ul class='inner'>
             <li id='home' class='nav button'>HOME</li>
             <li id='issue' class='nav button'>ISSUES</li>
@@ -125,6 +128,29 @@
                 </div>
             </section>
 
+            <!--
+            <div id='gallery'>
+                  <a href="myimage1.jpg" title="Title 1">
+                    <img alt="Title 1" src="images/img1.jpg"/>
+                  </a>
+                  <a href="myimage2.jpg" title="Title 2">
+                    <img alt="Title 2" src="images/img2.jpg"/>
+                  </a>
+                  <a href="myimage1.jpg" title="Title 1">
+                    <img alt="Title 1" src="images/img3.jpg"/>
+                  </a>
+                  <a href="myimage2.jpg" title="Title 2">
+                    <img alt="Title 2" src="images/img4.jpg"/>
+                  </a>
+                  <a href="myimage1.jpg" title="Title 1">
+                    <img alt="Title 1" src="images/img5.jpg"/>
+                  </a>
+                  <a href="myimage2.jpg" title="Title 2">
+                    <img alt="Title 2" src="images/img6.jpg"/>
+                  </a>
+            </div>
+            -->
+
             <section id='socialtimeline'>
 
              <header class='stories'>
@@ -177,8 +203,6 @@
                 </div>
             </section>
 
-            <div class='more button' id='none'>5 more stories</div> </div>
-
 
             <section id='join'>
                 <div class='inner'>
@@ -189,7 +213,7 @@
                     <a href="https://twitter.com/intent/tweet?button_hashtag=%D9%84%D8%A7_%D9%84%D9%84%D8%AA%D9%85%D8%AF%D9%8A%D8%AF&text=%20" class="twitter-hashtag-button" >
                         <div class='submittwt' ></div>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                                        </a>
+                    </a>
 
                 </div> 
             </section>
@@ -198,7 +222,7 @@
 
 
         <script type='text/template' id='list-item-image-template'>
-            <div class='listory' id='<%-id%>' >
+            <div class='listoryimg listory' id='<%-id%>' >
                 <div id='listory-content'>
                     <img id='media' src='<%-media%> '>
                 </div>
@@ -268,6 +292,7 @@
         <!-- build:js scripts/main.js -->
   
         <script src="components/jquery/jquery.js"></script>
+        <script src="components/blur.js"></script>
         <script src="components/bootstrap.js"></script>
         <script src="components/backbone/test/vendor/underscore.js"></script>
         <script src="components/backbone/backbone.js"></script>
@@ -279,11 +304,15 @@
         <script src="scripts/mymap.js"></script>
         <script src="scripts/views/map.js"></script>
         <script src="scripts/routers/router.js"></script>
-        <script src="scripts/main.js"></script>
+
 
         <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
         <!-- endbuild -->
+                        <script type="text/javascript" src="components/jquery.justifiedgallery.js"></script>
+
+                <script src="scripts/main.js"></script>
+
 </body>
 </html>

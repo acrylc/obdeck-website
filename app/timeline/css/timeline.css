@@ -1,5 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Junge:300,400);
 
+@font-face {
+font-family: GUB;
+src: url("/fonts/gubb.otf") format("opentype");
+}
+
 
 .vco-storyjs{}.vco-storyjs div *{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;}
 .vco-storyjs h1,.vco-storyjs h2,.vco-storyjs h3,.vco-storyjs h4,.vco-storyjs h5,.vco-storyjs h6,.vco-storyjs p,.vco-storyjs blockquote,.vco-storyjs pre,.vco-storyjs a,.vco-storyjs abbr,.vco-storyjs acronym,.vco-storyjs address,.vco-storyjs cite,.vco-storyjs code,.vco-storyjs del,.vco-storyjs dfn,.vco-storyjs em,.vco-storyjs img,.vco-storyjs q,.vco-storyjs s,.vco-storyjs samp,.vco-storyjs small,.vco-storyjs strike,.vco-storyjs strong,.vco-storyjs sub,.vco-storyjs sup,.vco-storyjs tt,.vco-storyjs var,.vco-storyjs dd,.vco-storyjs dl,.vco-storyjs dt,.vco-storyjs li,.vco-storyjs ol,.vco-storyjs ul,.vco-storyjs fieldset,.vco-storyjs form,.vco-storyjs label,.vco-storyjs legend,.vco-storyjs button,.vco-storyjs table,.vco-storyjs caption,.vco-storyjs tbody,.vco-storyjs tfoot,.vco-storyjs thead,.vco-storyjs tr,.vco-storyjs th,.vco-storyjs td,.vco-storyjs .vco-container,.vco-storyjs .content-container,.vco-storyjs .media,.vco-storyjs .text,.vco-storyjs .vco-slider,.vco-storyjs .slider,.vco-storyjs .date,.vco-storyjs .title,.vco-storyjs .messege,.vco-storyjs .map,.vco-storyjs .credit,.vco-storyjs .caption,.vco-storyjs .vco-feedback,.vco-storyjs .vco-feature,.vco-storyjs .toolbar,.vco-storyjs .marker,.vco-storyjs .dot,.vco-storyjs .line,.vco-storyjs .flag,.vco-storyjs .time,.vco-storyjs .era,.vco-storyjs .major,.vco-storyjs .minor,.vco-storyjs .vco-navigation,.vco-storyjs .start,.vco-storyjs .active{margin:0;padding:0;border:0;font-weight:normal;font-style:normal;font-size:100%;line-height:1;font-family:inherit;width:auto;float:none;}
@@ -288,10 +293,10 @@
 
 .vco-container.vco-main, .timenav-interval-background{
 	background-color: rgb(250,250,250) !important;
-	background-color: rgba(250,250,250,0.3) !important;
+	background-color: rgba(250,250,250,0) !important;
 }
 #storyjs-timeline{
-		background-color: rgba(250,250,250,0.3) !important;
+		background-color: rgba(250,250,250,0) !important;
 
 }
 .vco-slider{
@@ -317,9 +322,10 @@
 .container h2{
 	font-family: "Lato", Helvetica !important;
 	font-weight:300 !important;
-	font-size:2.1em !important;
+	font-size:2.5em !important;
 	text-align:center;
-		text-transform:uppercase
+	text-transform:uppercase;
+	font-family: "GUB", "Lato" !important;
 
 }
 
@@ -331,12 +337,15 @@
 	font-family: "Lato", Helvetica !important;
 	font-weight:300 !important;
 	font-size:0.7em !important;
+	color:white !important;
+	text-align: left !important;
 
 }
 
 .container p{
 	font-family: "Lato", serif !important;
 	font-size:0.9em;
+	color: black !important;
 }
 
 .container h3{
@@ -344,7 +353,8 @@
 	font-weight:800!important;
 	font-size:1.2em;
 	color:rgb(51,51,51)!important;
-	text-transform:uppercase
+	text-transform:uppercase;
+
 
 
 }
