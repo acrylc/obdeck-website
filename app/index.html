@@ -10,20 +10,23 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/new_main.css">
-                <link rel="stylesheet" href="components/jquery.justifiedgallery.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="styles/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <!-- build:css css/timeline.css --><link rel="stylesheet" href="components/timeline/css/timeline.css" /><!--endbuild -->
+        <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
 
 
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <!-- build:js scripts/vendor/timeline.js --><script type="text/javascript" src="components/timeline/js/storyjs-embed.js"></script>
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/bootstrap.js --><script src="components/bootstrap.js"></script><!-- endbuild -->
 
-  <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
-          <link rel="stylesheet" href="timeline/css/timeline.css" />
 
-  <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
-  <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+        <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+        <script src='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.js'></script>
+
 
 </head>
 
@@ -48,7 +51,6 @@
         </nav>
 
 
-    <script type="text/javascript" src="../timeline/js/storyjs-embed.js"></script>
 
         <div id='content'>
         </div>
@@ -280,22 +282,16 @@
         </script>
 
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
 
         <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+
         <!-- build:js scripts/main.js -->
   
         <script src="components/jquery/jquery.js"></script>
-        <script src="components/blur.js"></script>
-        <script src="components/bootstrap.js"></script>
         <script src="components/backbone/test/vendor/underscore.js"></script>
         <script src="components/backbone/backbone.js"></script>
+        <script src="components/blur.js"></script>
+
         <script src="scripts/models/story.js"></script>
         <script src="scripts/collections/stories.js"></script>
         <script src="scripts/views/homepage.js"></script>
@@ -305,14 +301,9 @@
         <script src="scripts/views/map.js"></script>
         <script src="scripts/routers/router.js"></script>
 
+        <script src="scripts/main.js"></script>
 
         <!-- endbuild -->
-
-        <!-- build:js scripts/plugins.js -->
-        <!-- endbuild -->
-                        <script type="text/javascript" src="components/jquery.justifiedgallery.js"></script>
-
-                <script src="scripts/main.js"></script>
 
 </body>
 </html>
