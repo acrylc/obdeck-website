@@ -108,10 +108,10 @@ $(function () {
 
             var j = this.collection.indexOf(story);
             //console.log(j);
-            if (j>0 && (j%4)==0){
+            if (j>0 && (j%3)==0){
                             //console.log("adding " +this.collection.indexOf(story));
 
-                this.el = "#ts"+ Math.floor(((j)/4)+1) +".tstories";
+                this.el = "#ts"+ Math.floor(((j)/3)+1) +".tstories";
             $(this.el).html((this.template()));
             }
             //console.log(this.el);
