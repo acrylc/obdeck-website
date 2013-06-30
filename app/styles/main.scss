@@ -22,7 +22,7 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 	position:relative;
 	padding-top:150px !important;
 	background-color: rgb(239, 239, 237) !important;
-	background-image: url("/images/hala.jpg");
+	background-image: url("../images/hala.jpg");
 		background-attachment: fixed;
 		padding-bottom:0px !important;
 }
@@ -149,7 +149,7 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 	// border-right :1px solid rgb(200,200,200);
 	// border-bottom :1px solid rgb(200,200,200);
 	border-radius: (($width)/3-20px)/2;
-	background-image: url('/images/tpb.jpg') no-repeat center;
+	background-image: url('images/tpb.jpg') no-repeat center;
 	vertical-align:top;
 	text-align:center;
 	img{

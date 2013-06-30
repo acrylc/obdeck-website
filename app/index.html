@@ -12,15 +12,13 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="styles/main.css">
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        <!-- build:css css/timeline.css --><link rel="stylesheet" href="components/timeline/css/timeline.css" /><!--endbuild -->
         <link href='http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css' rel='stylesheet' />
 
 
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
-        <!-- build:js scripts/vendor/timeline.js --><script type="text/javascript" src="components/timeline/js/storyjs-embed.js"></script>
-        <!-- endbuild -->
+		
         <!-- build:js scripts/vendor/bootstrap.js --><script src="components/bootstrap.js"></script><!-- endbuild -->
 
 
@@ -101,7 +99,7 @@
                         </header>
                         <ul>
                             <li id='tbp'  class='player'>
-                                <img src='/images/tbp.jpg' alt='Take back parliament logo'>
+                                <img src='images/tbp.jpg' alt='Take back parliament logo'>
                                 <p id='ptitle'>Take back parliament</p>
                                 <p id='pdesc'>A short description describing this groups relation to the issue, and why to contact. </p>
                                 <p id='pcontact'>fb.com/vote2013 | </p>
@@ -109,7 +107,7 @@
                             </li>
 
                             <li id='tbp'  class='player'>
-                                <img src='/images/mag.jpg'>
+                                <img src='images/mag.jpg'>
                                 <p id='ptitle'>من أجل الجمهورية</p>
                                 <p id='pdesc'>A short description describing this groups relation to the issue, and why to contact. orem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                                 <p id='pcontact'>fb.com/vote2013 | </p>
@@ -119,7 +117,7 @@
                             </li>
 
                             <li id='tbp'  class='player'>
-                                <img src='/images/lp.svg' alt="Lebanese parliament logo">
+                                <img src='images/lp.svg' alt="Lebanese parliament logo">
                                 <p id='ptitle'>Lebanese parliament</p>
                                 <p id='pdesc'>A short description describing this groups relation to the issue, and why to contact. orem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                                 <p id='pcontact'>fb.com/vote2013 | </p>
@@ -284,14 +282,17 @@
 
 
         <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+				
 
         <!-- build:js scripts/main.js -->
   
         <script src="components/jquery/jquery.js"></script>
         <script src="components/backbone/test/vendor/underscore.js"></script>
         <script src="components/backbone/backbone.js"></script>
-        <script src="components/blur.js"></script>
-
+		
+		<script src="components/timelinejs/compiled/js/timeline-min.js"></script>
+		<script src="components/timelinejs/compiled/js/storyjs-embed.js"></script>
+		
         <script src="scripts/models/story.js"></script>
         <script src="scripts/collections/stories.js"></script>
         <script src="scripts/views/homepage.js"></script>
@@ -303,7 +304,11 @@
 
         <script src="scripts/main.js"></script>
 
-        <!-- endbuild -->
-
+		<!-- endbuild -->	
+		
+		<!-- build:js scripts/vendor/blur.js -->
+        <script src="scripts/blur.js"></script>
+		<!-- endbuild -->	
+			
 </body>
 </html>

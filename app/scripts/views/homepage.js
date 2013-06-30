@@ -45,7 +45,7 @@ $(function(){
 				height:     '550',
 				source:     'https://docs.google.com/spreadsheet/pub?key=0AvsGYBn6aGTpdFlVWFB6S2JmczBON3gtM1J2SHhpVlE&output=html',
 				embed_id:   'my-timeline',
-				css: 'timeline.css'
+				css: 'timeline-style/timeline.css'
 			});
 
 			 $(window).scroll(function(){
