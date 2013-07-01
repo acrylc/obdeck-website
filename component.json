@@ -2,6 +2,7 @@
   "name": "obdeck-website",
   "version": "0.0.0",
   "dependencies": {
+    "backbone": "~1.0.0",
     "sass-bootstrap": "~2.3.0",
     "requirejs": "~2.1.4",
     "modernizr": "~2.6.2",
