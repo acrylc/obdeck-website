@@ -56,11 +56,6 @@
 
         <!-- Full cover page template, consists of map, editorial, chatter and call for action -->
         <script type='text/template' id='home-view-template'>
-
-
-
-
-        <!-- END TimelineJS -->
 		
             <section id="event-timeline"></section>
 		
@@ -68,9 +63,11 @@
                 <div class='inner'>
 
                     <div id='description'>
+
                         <header>
                             <h1>Short Overview</h1>
                         </header>
+
                         <%-overview%> 
                     </div>
                     
@@ -103,6 +100,7 @@
 				
                     <div class='line dark'></div>
 					
+                    <!--
                     <div id='t1' class='trow'>
 					
                         <div class='timestamp'>
@@ -148,6 +146,8 @@
                         <div id='ts5' class='tstories'> 
                         </div>
                     </div>
+
+                    -->
                 </div>
             </section>
 			
@@ -217,10 +217,19 @@
 
 
         <script type='text/template' id='list-view-template'>
-
             <ul id='stories'>
             </ul>
+        </script>
 
+        <script type='text/template' id='vtimelinerow-template'>
+                <div class='timestamp'>
+                    <div class='tcircle'></div>
+                    <div class='tlabel'> <b> <%-datelabel%> </b> <%-date%> </div>
+                </div> 
+                <div id='ts<%-index%>' class='tstories'> 
+                    <ul id='stories'>
+                    </ul>
+                </div>   
         </script>
 
 
