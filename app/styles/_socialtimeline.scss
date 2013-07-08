@@ -24,11 +24,11 @@ $vth: 1600px;
 }
 
 #vtimeline{
-	position:absolute;
-	top:200px;
-	left:170px;
-	width:50px;
+	position:relative;
+	top: 50px;
+	width:70%;
 	height:$vth;
+	margin: 0 auto;
 }
 
 .line.dark{
@@ -89,14 +89,14 @@ $vth: 1600px;
 .trow{
 	position:absolute;
 	
-	width:900px;
+	width:95%;
 	height:300px;
 }
 
 .tstories{
 	margin-top:70px;
 	margin-left: 70px;
-	width:900px;
+	width:100%;
 }
 
 .tlabel{

@@ -153,10 +153,10 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 	text-align:center;
 	img{
 		margin:15px 0px 15px 0px;
-		width:210px;
-		height:210px;
+		width:200px;
+		height:200px;
 		border: 1px solid rgb(200,200,200);
-		border-radius:105px;
+		border-radius:101px;
 		background-color: rgb(210,210,210);
 
 	}
@@ -199,8 +199,8 @@ ul#stories{
 	width:100%;
 	text-align:left;
 	li{
-		margin:10px;
-		width:220px;
+		margin:10px 1% 10px 1%;
+		width:30%;
 		height:230px;
 	}
 }

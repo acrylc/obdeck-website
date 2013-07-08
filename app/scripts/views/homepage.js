@@ -99,7 +99,7 @@ $(function(){
 				console.log(i);
 				var id = '#t'+ (i+1);
 				$('#vtimeline').append('<div id="t'+ (i+1) +'" class="trow"></div>');
-				var v = new app.Views.List({'el':id, 'index': i+1, 'issue':'test', 'datelabel':datelabels[i], 'date':'July 03 2012' });
+				var v = new app.Views.List({'el':id, 'index': i+1, 'issue':'test', 'datelabel':datelabels[i], 'date':'JULY 03 2012' });
 			}
 
 		},
