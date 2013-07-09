@@ -16,7 +16,7 @@ $(function(){
 	// and visualize dynamically in map or list view depending on set controls
 	// sample usage :
 	// var view = new app.Views.StoryVisualization({issue : "bribery"});
-	app.Views.HomeView = Backbone.View.extend({
+	app.Views.IssueView = Backbone.View.extend({
 
 		el: "#content",
 

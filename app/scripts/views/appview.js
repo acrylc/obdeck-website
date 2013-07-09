@@ -34,7 +34,7 @@ $(function(){
 		navigateHome: function() {
 			console.log('home');
 			app.router.navigate('/');
-			var view = new app.Views.HomeView({});
+			var view = new app.Views.IssueView({});
 		},
 
 		navigateIssue: function(issue){
