@@ -27,23 +27,23 @@ $(function(){
 				]
 			};
 
-			 app.issue = {
-				overview : " Yesterday night, Nadine Moawad, spokesperson for Nasawiya, posted on Facebook “Urgent. The shabbee7a of Nadim Gemayel just carried machine guns in our faces in Nasawiya. We are now locked in.” Later we found out that apparently the bodyguards entered the Nasawiya HQ in Mar Mikhael and demanded that the feminists stop taking pictures. Taking pictures? Yes, Nasawiya was having a farewell party and pictures tend to be part of a party. The ‘problem’, according to the thugs, is that our dear Nadim Gemayel was having a dinner nearby and apparently has a reputation of being paranoid. When the feminists refused (and rightly so), the thugs pointed machine guns at an activist and threatened to shoot saying they had “permission to do so”. The feminists got scared and locked themselves in, waiting for the police to intervene, which they eventually did. Part of the confrontation was filmed and uploaded on Facebook.",
-				timeline_doc : "https://docs.google.com/spreadsheet/pub?key=0AvsGYBn6aGTpdDc5YlVFeVdzek02VjlsQUdXeUFra1E&output=html",
-				heroimage : "../images/pat.jpg",
-				keyplayers: [
-					{	name : "Nadim Gemayel", 
-						description : "A short description describing this groups relation to the issue, and why to contact. ", 
-						logo : "images/nadimgemayel.jpg",
-						contact :  {fb : "fb.com/vote2013"} 
-					},
-					{	name : "Take back parliament", 
-						description : "A short description describing this groups relation to the issue, and why to contact. ", 
-						logo : "images/tbp.jpg",
-						contact : {fb : "fb.com/vote2013"} 
-					}
-				]
-			};
+			//  app.issue = {
+			// 	overview : " Yesterday night, Nadine Moawad, spokesperson for Nasawiya, posted on Facebook “Urgent. The shabbee7a of Nadim Gemayel just carried machine guns in our faces in Nasawiya. We are now locked in.” Later we found out that apparently the bodyguards entered the Nasawiya HQ in Mar Mikhael and demanded that the feminists stop taking pictures. Taking pictures? Yes, Nasawiya was having a farewell party and pictures tend to be part of a party. The ‘problem’, according to the thugs, is that our dear Nadim Gemayel was having a dinner nearby and apparently has a reputation of being paranoid. When the feminists refused (and rightly so), the thugs pointed machine guns at an activist and threatened to shoot saying they had “permission to do so”. The feminists got scared and locked themselves in, waiting for the police to intervene, which they eventually did. Part of the confrontation was filmed and uploaded on Facebook.",
+			// 	timeline_doc : "https://docs.google.com/spreadsheet/pub?key=0AvsGYBn6aGTpdDc5YlVFeVdzek02VjlsQUdXeUFra1E&output=html",
+			// 	heroimage : "../images/pat.jpg",
+			// 	keyplayers: [
+			// 		{	name : "Nadim Gemayel", 
+			// 			description : "A short description describing this groups relation to the issue, and why to contact. ", 
+			// 			logo : "images/nadimgemayel.jpg",
+			// 			contact :  {fb : "fb.com/vote2013"} 
+			// 		},
+			// 		{	name : "Take back parliament", 
+			// 			description : "A short description describing this groups relation to the issue, and why to contact. ", 
+			// 			logo : "images/tbp.jpg",
+			// 			contact : {fb : "fb.com/vote2013"} 
+			// 		}
+			// 	]
+			// };
 			
 	// Global event
 	app.vent = _.extend({}, Backbone.Events);

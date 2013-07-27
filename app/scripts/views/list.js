@@ -19,6 +19,16 @@ $(function () {
 
         template: _.template($('#vtimelinerow-template').html()),
 
+        events : {
+            "click .next" : "next",
+            "click .back" : "back"
+        },
+
+        next: function(){
+            console.log('next');
+            this.fetchStories(3);
+        },
+
         initialize: function () {
 
             this.issue = this.options.issue;
@@ -34,7 +44,7 @@ $(function () {
             this._storyViews = [];
             this._storiesCache = [];
             this.numStoriesFetched = 0;
-            
+            this.prev = 0;
             this.render();
 
             // initalize collection
@@ -42,7 +52,7 @@ $(function () {
             _.bindAll(this);
 
             var that = this;
-            this.collection.bind('add', this.add);
+            // this.collection.bind('add', this.add);
             this.collection.bind('remove', this.remove);
             this.collection.bind('reset', this.reset);
 
@@ -84,19 +94,31 @@ $(function () {
         },
 
         // add individual story 
-        add: function (story) {
+        add: function () {
          
+                     $(this.el).empty();
+            var that = this;
+            $(this.el).html((this.template(that.options)));
+
+            this._rendered = true;
+
             that = this;
-            i = "s"+(this.collection.indexOf(story)+1);
+            this.reset();
+            var start = Math.max(0,this.prev-1);
+            for (var i = start;i<this.collection.length;i++){
+                var story = this.collection.at(i);
+                console.log(story);
             var view = new app.Views.ListItem({
                 tagName: 'li',
                 id: i,
                 model: story
             });
 
+    
             this._storyViews.push(view);
             if (this._rendered) {
                 $(this.el).children('.tstories').children('#stories').append(view.render().el);
+            }
             }
         },
 
@@ -115,6 +137,7 @@ $(function () {
         // *********
         fetchStories: function (n) {
 
+            this.prev = this.collection.length;
             this.numSnapshotsFetched = 0;
             this._storiesCache=[];
             if (n === undefined || typeof (n) != "number")
@@ -194,6 +217,7 @@ $(function () {
 	                                    that.collection.add(that._storiesCache);
 	                                    that.numStoriesFetched = that.numStoriesFetched + that._storiesCache.length;
 	                                    that._storiesCache = [];
+                                        that.add();
                             		if (that.numStoriesToFetch > 1 && that._filter!="none" && that.numStoriesFetched<num){
                             			that.fetchStories(3);
                             		} else {

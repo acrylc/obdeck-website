@@ -134,7 +134,7 @@ $ul-width: ($story-width + 2*$story-p + 2*$story-m)*3;
 	&:hover{
 		// border-bottom: 2px  $red solid;
 			.cover{
-				opacity: 1;
+				opacity: 0.95;
 				@include transition(opacity 0.2s ease-in);
 
 			}
@@ -213,4 +213,20 @@ $ul-width: ($story-width + 2*$story-p + 2*$story-m)*3;
 		left: 50%;
 	}
 
+}
+
+.stories.button{
+	width:5px;
+	height:100px;
+	background-color:black;
+	z-index:999;
+	position: relative;
+	display:inline-block;
+	margin:0px;
+	padding:0px;
+	vertical-align:top;
+}
+
+.stories.button.next{
+	background-color: white;
 }
