@@ -26,15 +26,15 @@ $(function(){
 		},
 
 		initialize: function() {
-			app.vent.on('displayIssue', this.navigateIssue, this);
-			app.vent.on('displayIssuesPage', this.navigateIssues, this);
+			// app.vent.on('displayIssue', this.navigateIssue, this);
+			// app.vent.on('displayIssuesPage', this.navigateIssues, this);
 
 		},
 
 		navigateHome: function() {
 			console.log('home');
 			app.router.navigate('/');
-			var view = new app.Views.HomeView({});
+			var view = new app.Views.IssueView({});
 		},
 
 		navigateIssue: function(issue){
@@ -45,13 +45,13 @@ $(function(){
 
 			// clear DOM
 			$('#content').empty();
-			var view = new app.Views.IssueView({'issue':issue});
+			// var view = new app.Views.IssueView({'issue':issue});
 		},
 
 		navigateIssues: function(){
 				console.log('issues');
 			app.router.navigate('/issues');
-			var view = new app.Views.IssuePage({});
+			// var view = new app.Views.IssuePage({});
 		},
 
 		navigateAbout: function(){

@@ -1,0 +1,125 @@
+var ref = new Firebase('https://observationdeck.firebaseio.com/');
+stories = [];
+ref.on('child_added', function(snapshot) {
+				if (snapshot.val() === null) {
+					console.log('no found images');
+				} else { stories[ stories.length ] = snapshot.val(); } });
+
+for (var i=0;i<50;i++) stories[i].type = "twtr";
+
+for (var i=50;i<102;i++) stories[i].type = "comp";
+
+for(var i=0;i<102;i++){
+	if (stories[i].category === undefined){
+	stories[i].category = ["test"];
+	} else {
+	stories[i].category[stories[i].category.length] = "test";
+ 	}
+}
+
+// so now i have the stories
+
+for (var i=0;i<stories.length;i++){
+	
+		var d = stories[i].time;
+	for (var k=0;k<d.length;k++){ if (d[k] === ":") break; }
+	var h = parseInt( d.substring(0,k) );
+	for (var j=k;j<d.length;j++){ if (d[j] === " ") break; }
+	var m = parseInt(d.substring(k+1,j));
+	if (d[j+1]==="P") h = h+12;
+	var priority = 1*h*60+m;
+
+	var popularity = Math.floor(Math.random()*101);
+
+	stories[i].priority = priority;
+	stories[i].popularity = popularity;
+
+	var storiesref = new Firebase('https://lebelec.firebaseio.com/stories');
+	var newstory = storiesref.push();
+	newstory.set(stories[i]);
+	var storylink = newstory.name();
+
+
+	// create recent priority based on time 
+
+	// for each secondary hashtag, append to list ordered by recent
+	for (var j=0;j<stories[i].category.length;j++){
+		var hashref = new Firebase('https://lebelec.firebaseio.com/hashtags/'+ stories[i].category[j]+'/recent');
+		var newstory = hashref.push();
+		newstory.setWithPriority(storylink, priority)
+	}
+
+	for (var j=0;j<stories[i].category.length;j++){
+		var hashref = new Firebase('https://lebelec.firebaseio.com/hashtags/'+ stories[i].category[j]+'/trending');
+		var newstory = hashref.push();
+		newstory.setWithPriority(storylink, popularity)
+	}
+
+}
+
+// Get first top stories for issue : test
+var issue = 'test';
+var ref = new Firebase('https://lebelec.firebaseio.com/hashtags/'+ issue);
+tmpStories = [];
+tmpRefs = [];
+
+// GET FIRST 20, save last one to get after it
+var num = 20;
+ref.startAt().limit(num).on('child_added', function(snapshot) {
+	if (snapshot.val() === null) {
+		console.log('no found images');
+	} else { 
+	    tmpRefs[tmpRefs.length]= snapshot.val();
+	var story = new Firebase('https://lebelec.firebaseio.com/stories/'+ snapshot.val());
+	story.on('value', function(snapshot) {
+	        if (snapshot.val() === null) {
+	            alert('No found images!');
+	        } else {
+	            tmpStories[tmpStories.length]= snapshot.val();
+	        }
+	    });
+	} 
+});
+
+// LISTEN TO NEW ONES ADDED
+// disregard first one
+var firstNew = true; // a boolean for disregarding first story
+var newStories = [];
+var newRefs = []''
+ref.endAt( tempStories[0].priority, tempRef[0] ).on('child_added', function(snapshot) {
+	if (snapshot.val() === null) {
+		console.log('no found images');
+	} else { 
+		newRefs[newRefs.length]= snapshot.val();
+		var story = new Firebase('https://lebelec.firebaseio.com/stories/'+ snapshot.val());
+		story.on('value', function(snapshot) {
+	        if (snapshot.val() === null) {
+	            alert('No found images!');
+	        } else {
+	        	if(!firstNew) { 
+	            	newStories[newStories.length]= snapshot.val(); 
+            	} else { firstNew = false; }
+	        }
+	    });
+
+	} 
+});
+
+// GET NEXT 20
+// store last to get after it
+// disregard first one 
+ref.startAt( tempStories[tempStories.length-1].priority, tempRefs[tempRefs.length]-1 ).limit(num + 1).on('child_added', function(snapshot) {
+	if (snapshot.val() === null) {
+		console.log('no found images');
+	} else { 
+	    tmpRefs[tmpRefs.length]= snapshot.val();
+	var story = new Firebase('https://lebelec.firebaseio.com/stories/'+ snapshot.val());
+	story.on('value', function(snapshot) {
+	        if (snapshot.val() === null) {
+	            alert('No found images!');
+	        } else {
+	            tmpStories[tmpStories.length]= snapshot.val();
+	        }
+	    });
+	} 
+});
