@@ -21,7 +21,7 @@ $(function(){
 		el: "#content",
 
 		template: _.template( $('#home-view-template').html() ),
-		kptemplate: _.template( $('#keyplayer-template').html() ),
+		keyplayer_template: _.template( $('#keyplayer-template').html() ),
 		vttemplate: _.template( $('#vtimelinerow-template').html() ),
 
 		// Listen to navbar, update content accordingly
@@ -30,13 +30,14 @@ $(function(){
 
 		initialize: function() {
 
+			this.issue_url = 'https://docs.google.com/spreadsheet/pub?key=0AvsGYBn6aGTpdHJOU2RCVUtDVkFsSkcxcUFHUUZDRGc&output=html';
+			
+
 			this.render();
 			this.initEventTimeline();
 			this.initNavbar();
 			this.initSocialTimeline();
-			 for(var i=0;i<app.issue.keyplayers.length;i++){
- 				 $('#players').append( this.kptemplate( app.issue.keyplayers[i]) );
-			}
+			this.initKeyPlayers();
 
 		},
 
@@ -103,6 +104,14 @@ $(function(){
 			}
 
 		},
+
+		initKeyPlayers: function(){
+
+			 for(var i=0;i<app.issue.keyplayers.length;i++){
+ 				 $('#players').append( this.keyplayer_template( app.issue.keyplayers[i]) );
+			}
+
+		}, 
 
 		render: function(){
 			$(this.el).empty();

@@ -1,6 +1,3 @@
-
-
-
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,900);
@@ -83,7 +80,8 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 	text-align:justify;
 	font-weight:300;
 	font-family: "Junge", serif;
-	width:600px;
+	font: 1.3em/1.5em "Junge", serif;
+	width:100%;
 }
 
 
@@ -138,7 +136,6 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 	ul{
 		margin:0px;
-		// background-color: darken(desaturate(rgb(250,200,170),70%),0%);
 	}
 }
 
@@ -153,9 +150,9 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 	text-align:center;
 	img{
 		margin:15px 0px 15px 0px;
-		width:200px;
-		height:200px;
-		border: 1px solid rgb(200,200,200);
+		width:150px;
+		height:150px;
+		border: 1px solid rgba(200,200,200,0.5);
 		border-radius:101px;
 		background-color: rgb(210,210,210);
 
