@@ -31,10 +31,25 @@ $(function(){
 
 		},
 
+		// Creates an issue page, issue url hardcoded for now
 		navigateHome: function() {
-			console.log('home');
+
+			var url =  'https://docs.google.com/spreadsheet/pub?key=0AvsGYBn6aGTpdHJOU2RCVUtDVkFsSkcxcUFHUUZDRGc&output=html';
 			app.router.navigate('/');
-			var view = new app.Views.IssueView({});
+			var issue;
+			var that = this;
+			var cms = pepper(url, {
+				'Name': 'string',
+				'Url': 'string',
+				'Content': 'string'
+			});
+			cms.sync()
+			.then(function(data) {
+				issue = that.parseIssueData(data);
+			})
+			.fail(function (error) {
+				console.log("Sync Failed: "+ error);
+			})
 		},
 
 		navigateIssue: function(issue){
@@ -49,7 +64,7 @@ $(function(){
 		},
 
 		navigateIssues: function(){
-				console.log('issues');
+			console.log('issues');
 			app.router.navigate('/issues');
 			// var view = new app.Views.IssuePage({});
 		},
@@ -61,8 +76,42 @@ $(function(){
 
 		navigateParticipate: function(){
 			app.router.navigate('/participate');
-		}
+		}, 
 
+		//NOTE : fix naming
+		parseIssueData: function(data){
+			var issue = {};
+			console.log('FETCHED DATA IS ');
+			console.log(data);
+			issue.overview = data[1].content;
+			issue.timelineDoc = data[4].url;
+			issue.heroImage = data[0].url;
+
+			// fetch key players
+			issue.keyPlayers = {};
+			
+			var url =  data[2].url;
+			console.log('URL IS ::   ' + url);
+			app.router.navigate('/');
+			var that = this;
+			var cms = pepper(url, {
+				'Name': 'string',
+				'Description': 'string',
+				'Logo': 'string'
+							});
+			
+			cms.sync()
+			.then(function(data) {
+				issue.keyPlayers = data;
+				console.log('Parsed issue data');
+				console.log(issue);
+				var view = new app.Views.IssueView({'issue' : issue});
+
+			})
+			.fail(function (error) {
+				console.log("Sync Failed: "+ error);
+			})
+		}
 
 	});
 

@@ -7,46 +7,56 @@ var app = app || {
 };
 
 
-// Load the application once the DOM is ready, using `jQuery.ready`:
 $(function(){
 
-	// Dynamic content view
-	// ---------------
-	// Pass an issue hashtag, will get from Firebase corresponding data
-	// and visualize dynamically in map or list view depending on set controls
-	// sample usage :
-	// var view = new app.Views.StoryVisualization({issue : "bribery"});
+	/* IssueView
+	 * Extends Backbone.View
+	 * Pass an issue object, will create a issue page
+	 * Consisting of : 
+	 *  	- An event timeline (timelineJS)
+	 * 		- Editorial content section
+	 * 		- Key players section
+	 * 		- Story timeline (of tweets)
+	 * 	
+	 * var view = new app.Views.StoryVisualization({issue : "bribery"});
+	 */
+
 	app.Views.IssueView = Backbone.View.extend({
 
 		el: "#content",
 
 		template: _.template( $('#home-view-template').html() ),
-		keyplayer_template: _.template( $('#keyplayer-template').html() ),
-		vttemplate: _.template( $('#vtimelinerow-template').html() ),
+		keyPlayerTemplate: _.template( $('#keyplayer-template').html() ),
+		socialTimelineTemplate: _.template( $('#vtimelinerow-template').html() ),
 
-		// Listen to navbar, update content accordingly
 		events: {
 		},
 
-		initialize: function() {
-
-			this.issue_url = 'https://docs.google.com/spreadsheet/pub?key=0AvsGYBn6aGTpdHJOU2RCVUtDVkFsSkcxcUFHUUZDRGc&output=html';
-			
-
+		initialize: function() {		
 			this.render();
-			this.initEventTimeline();
-			this.initNavbar();
-			this.initSocialTimeline();
-			this.initKeyPlayers();
+			this.renderEventTimeline();
+			this.renderSocialTimeline();
+			this.renderKeyPlayers();
+			this.animateNavbar();
+
 
 		},
 
-		// Create a blurred hero unit with a TimelineJS
-		// timeline based on the doc created by editorial team
-		initEventTimeline: function(){
+		// Render the skeleton of the view
+		render: function(){
+			var that = this;
+			$(this.el).empty();
+			$(this.el).html((this.template({'overview':that.options.issue.overview})));
+			return this;
+		},
 
-			// Set background image to hero unit
-			$('#event-timeline').css({'background-image' : ' url('+ app.issue.heroimage +')'});
+		// Render the event timeline using timelineJS and the user edited
+		// gDoc passed in the issue object 
+		renderEventTimeline: function(){
+
+			// Set background image to heroImage
+			var that = this;
+			$('#event-timeline').css({'background-image' : ' url('+ this.options.issue.heroImage +')'});
 				
 			// Blur hero unit
 			$('#event-timeline').blurjs({
@@ -60,15 +70,14 @@ $(function(){
 				type:       'timeline',
 				width:      '100%',
 				height:     '550',
-				source:     app.issue.timeline_doc,
+				source:     that.options.issue.timelineDoc,
 				embed_id:   'event-timeline',
 				css: 'timeline-style/timeline.css'
 			});
 		},
 
-		// Display navbar and change 
-		// style (hover or static) based on scroll
-		initNavbar: function(){
+		// Toggle the navbar's display (hover or static) based on scroll level
+		animateNavbar: function(){
 			var that = this;
 			$('#navbar').show();
 			this.navIsFixed = false;
@@ -92,12 +101,13 @@ $(function(){
 			});
 		},
 
-		initSocialTimeline: function(){
+
+		// Render a vertical timeline of tweet 
+		renderSocialTimeline: function(){
 			var datelabels = ['TODAY', 'YESTERDAY', 'LAST WEEK', 'LAST MONTH', 'LAST YEAR'];
 			var dates = [];
 
 			for (var i=0;i<5;i++){
-				console.log(i);
 				var id = '#t'+ (i+1);
 				$('#vtimeline').append('<div id="t'+ (i+1) +'" class="trow"></div>');
 				var v = new app.Views.List({'el':id, 'index': i+1, 'issue':'test', 'datelabel':datelabels[i], 'date':'JULY 03 2012' });
@@ -105,19 +115,18 @@ $(function(){
 
 		},
 
-		initKeyPlayers: function(){
+		// Render the key players in the issue object
+		// issue.keyPlayers
+		renderKeyPlayers: function(){
 
-			 for(var i=0;i<app.issue.keyplayers.length;i++){
- 				 $('#players').append( this.keyplayer_template( app.issue.keyplayers[i]) );
+			for(var i=0;i<this.options.issue.keyPlayers.length;i++){
+				this.options.issue.keyPlayers[i].contact = "";
+				$('#players').append( this.keyPlayerTemplate( this.options.issue.keyPlayers[i]) );
 			}
 
 		}, 
 
-		render: function(){
-			$(this.el).empty();
-			$(this.el).html((this.template({'overview':app.issue.overview})));
-			return this;
-		},
+
 
 		reset: function(){
 			this.visual.destroy();
