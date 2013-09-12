@@ -32,7 +32,10 @@ $(function(){
 		events: {
 		},
 
-		initialize: function() {		
+		initialize: function() {	
+
+//			this.fetchData();
+
 			this.render();
 			this.renderEventTimeline();
 			this.renderSocialTimeline();
@@ -46,7 +49,7 @@ $(function(){
 		render: function(){
 			var that = this;
 			$(this.el).empty();
-			$(this.el).html((this.template({'overview':that.options.issue.overview})));
+			$(this.el).html((this.template({'overview':that.options.issue.toJSON().overview})));
 			return this;
 		},
 
@@ -56,7 +59,7 @@ $(function(){
 
 			// Set background image to heroImage
 			var that = this;
-			$('#event-timeline').css({'background-image' : ' url('+ this.options.issue.heroImage +')'});
+			$('#event-timeline').css({'background-image' : ' url('+ this.options.issue.toJSON().heroImage +')'});
 				
 			// Blur hero unit
 			$('#event-timeline').blurjs({
@@ -70,7 +73,7 @@ $(function(){
 				type:       'timeline',
 				width:      '100%',
 				height:     '550',
-				source:     that.options.issue.timelineDoc,
+				source:     that.options.issue.toJSON().timelineDoc,
 				embed_id:   'event-timeline',
 				css: 'timeline-style/timeline.css'
 			});
@@ -119,13 +122,12 @@ $(function(){
 		// issue.keyPlayers
 		renderKeyPlayers: function(){
 
-			for(var i=0;i<this.options.issue.keyPlayers.length;i++){
-				this.options.issue.keyPlayers[i].contact = "";
-				$('#players').append( this.keyPlayerTemplate( this.options.issue.keyPlayers[i]) );
+			for(var i=0;i<this.options.issue.toJSON().keyPlayers.length;i++){
+				this.options.issue.toJSON().keyPlayers[i].contact = "";
+				$('#players').append( this.keyPlayerTemplate( this.options.issue.toJSON().keyPlayers[i]) );
 			}
 
 		}, 
-
 
 
 		reset: function(){

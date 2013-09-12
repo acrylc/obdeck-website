@@ -1,0 +1,16 @@
+
+.issue-link{
+	width:300px;
+	height: 300px;
+	margin:50px;
+	background-color: rgb(100,100,100);
+	display:inline-block;
+	color:white;
+	font-size:2em;
+	font-weight:300;
+	text-align: center;
+	&:hover{
+		background-color: black;
+		@include transition(background-color 200ms ease-in);
+	}
+}
